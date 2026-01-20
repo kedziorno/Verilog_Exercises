@@ -32,15 +32,15 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
 
-ENTITY tb_barrel_shifter IS
-END tb_barrel_shifter;
+ENTITY tb_barrel_shifter_vhdl IS
+END tb_barrel_shifter_vhdl;
 
-ARCHITECTURE behavior OF tb_barrel_shifter IS
+ARCHITECTURE behavior OF tb_barrel_shifter_vhdl IS
 
 constant n_bit : integer := 3;
 
 -- Component Declaration for the Unit Under Test (UUT)
-component barrel_shifter is
+component barrel_shifter_vhdl is
   generic (n : integer := n_bit);
   port (
     o_order     : out std_logic_vector (2 ** n - 1 downto 0);
@@ -61,7 +61,7 @@ signal o_order : std_logic_vector(2 ** n_bit - 1 downto 0);
 BEGIN
 
 -- Instantiate the Unit Under Test (UUT)
-uut : barrel_shifter PORT MAP (
+uut : barrel_shifter_vhdl PORT MAP (
 o_order => o_order,
 i_order => i_order,
 sel_shl_shr => sel_shl_shr,

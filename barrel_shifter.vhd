@@ -31,7 +31,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VComponents.all;
 
-entity barrel_shifter is
+entity barrel_shifter_vhdl is
   generic (n : integer := 3);
   port (
     o_order     : out std_logic_vector (2 ** n - 1 downto 0);
@@ -39,9 +39,9 @@ entity barrel_shifter is
     sel_shl_shr : in  std_logic_vector (n      - 1 downto 0);
     ml_sb_order : in  std_logic
   );
-end entity barrel_shifter;
+end entity barrel_shifter_vhdl;
 
-architecture behavioral of barrel_shifter is
+architecture behavioral of barrel_shifter_vhdl is
 
   component M2_1 is
   port(
