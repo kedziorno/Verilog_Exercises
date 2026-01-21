@@ -44,21 +44,21 @@ generate
     if (i == 0) begin
       for (j = 0; j < (2 ** n); j = j + 1) begin : g1
         if (j == 0) begin
-          m2_1 m2_1_msb (.s0 (sel_shl_shr [i]), .d1 (1'b0), .d0 (i_order [j]), .o (lsb_order [i][j]));
-          m2_1 m2_1_lsb (.s0 (sel_shl_shr [i]), .d0 (1'b0), .d1 (i_order [j]), .o (msb_order [i][j]));
+          m2_1 m2_1_msb (.s0 (sel_shl_shr [i]), .d1 (1'b0),            .d0 (i_order [j]), .o (lsb_order [i][j]));
+          m2_1 m2_1_lsb (.s0 (sel_shl_shr [i]), .d0 (1'b0),            .d1 (i_order [j]), .o (msb_order [i][j]));
         end else begin
           m2_1 m2_1_msb (.s0 (sel_shl_shr [i]), .d1 (i_order [j - 1]), .d0 (i_order [j]), .o (lsb_order [i][j]));
           m2_1 m2_1_lsb (.s0 (sel_shl_shr [i]), .d0 (i_order [j - 1]), .d1 (i_order [j]), .o (msb_order [i][j]));
         end
       end
     end else begin
-      for (k = 0; k < ((2 ** n) / (n - i + 1)); k = k + 1) begin : g2
-        m2_1 m2_1_msb (.s0 (sel_shl_shr [i]), .d1 (1'b0), .d0 (lsb_order [i - 1][k]), .o (lsb_order [i][k]));
-        m2_1 m2_1_lsb (.s0 (sel_shl_shr [i]), .d0 (1'b0), .d1 (msb_order [i - 1][k]), .o (msb_order [i][k]));
+      for (k = 0; k < (2 ** i); k = k + 1) begin : g2
+        m2_1 m2_1_msb (.s0 (sel_shl_shr [i]), .d1 (1'b0),                            .d0 (lsb_order [i - 1][k]), .o (lsb_order [i][k]));
+        m2_1 m2_1_lsb (.s0 (sel_shl_shr [i]), .d0 (1'b0),                            .d1 (msb_order [i - 1][k]), .o (msb_order [i][k]));
       end
-      for (l = ((2 ** n) / (n - i + 1)); l < (2 ** n); l = l + 1) begin : g3
-        m2_1 m2_1_msb (.s0 (sel_shl_shr [i]), .d1 (lsb_order [i - 1][l - ((2 ** n) / (n - i + 1))]), .d0 (lsb_order [i - 1][l]), .o (lsb_order [i][l]));
-        m2_1 m2_1_lsb (.s0 (sel_shl_shr [i]), .d0 (msb_order [i - 1][l - ((2 ** n) / (n - i + 1))]), .d1 (msb_order [i - 1][l]), .o (msb_order [i][l]));
+      for (l = (2 ** i); l < (2 ** n); l = l + 1) begin : g3
+        m2_1 m2_1_msb (.s0 (sel_shl_shr [i]), .d1 (lsb_order [i - 1][l - (2 ** i)]), .d0 (lsb_order [i - 1][l]), .o (lsb_order [i][l]));
+        m2_1 m2_1_lsb (.s0 (sel_shl_shr [i]), .d0 (msb_order [i - 1][l - (2 ** i)]), .d1 (msb_order [i - 1][l]), .o (msb_order [i][l]));
       end
     end
   end

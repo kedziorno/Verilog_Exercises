@@ -75,13 +75,13 @@ begin
       end generate g2;
     end generate g1;
     g7 : if (i > 0) generate
-      g8 : for k in 0 to (2 ** n / (n - i + 1)) - 1 generate
+      g8 : for k in 0 to (2 ** i) - 1 generate
         m2_chain_3_msb : m2_1 port map (s0 => sel_shl_shr (i), d1 => '0', d0 => msb_order (i - 1)(k), o => msb_order (i)(k));
         m2_chain_3_lsb : m2_1 port map (s0 => sel_shl_shr (i), d0 => '0', d1 => lsb_order (i - 1)(k), o => lsb_order (i)(k));
       end generate g8;
-      g9 : for l in (2 ** n / (n - i + 1)) to 2 ** n - 1 generate
-        m2_chain_4_msb : m2_1 port map (s0 => sel_shl_shr (i), d1 => msb_order (i - 1)(l - (2 ** n / (n - i + 1))), d0 => msb_order (i - 1)(l), o => msb_order (i)(l));
-        m2_chain_4_lsb : m2_1 port map (s0 => sel_shl_shr (i), d0 => lsb_order (i - 1)(l - (2 ** n / (n - i + 1))), d1 => lsb_order (i - 1)(l), o => lsb_order (i)(l));
+      g9 : for l in (2 ** i) to 2 ** n - 1 generate
+        m2_chain_4_msb : m2_1 port map (s0 => sel_shl_shr (i), d1 => msb_order (i - 1)(l - (2 ** i)), d0 => msb_order (i - 1)(l), o => msb_order (i)(l));
+        m2_chain_4_lsb : m2_1 port map (s0 => sel_shl_shr (i), d0 => lsb_order (i - 1)(l - (2 ** i)), d1 => lsb_order (i - 1)(l), o => lsb_order (i)(l));
       end generate g9;
     end generate g7;
   end generate g0;

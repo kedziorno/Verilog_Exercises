@@ -30,12 +30,12 @@ USE ieee.std_logic_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---USE ieee.numeric_std.ALL;
+USE ieee.numeric_std.ALL;
 
-ENTITY tb_barrel_shifter_vhdl IS
-END tb_barrel_shifter_vhdl;
+ENTITY tb_barrel_shifter_vhdl_3 IS
+END tb_barrel_shifter_vhdl_3;
 
-ARCHITECTURE behavior OF tb_barrel_shifter_vhdl IS
+ARCHITECTURE behavior OF tb_barrel_shifter_vhdl_3 IS
 
 constant n_bit : integer := 3;
 
@@ -48,7 +48,7 @@ component barrel_shifter_vhdl is
     sel_shl_shr : in  std_logic_vector (n      - 1 downto 0);
     ml_sb_order : in  std_logic
   );
-end component barrel_shifter;
+end component barrel_shifter_vhdl;
 
 --Inputs
 signal i_order : std_logic_vector(2 ** n_bit - 1 downto 0) := (others => '0');
@@ -70,88 +70,319 @@ ml_sb_order => ml_sb_order
 
 -- Stimulus process
 stim_proc: process
+  procedure lo_dto (a : integer) is
+  begin
+    for i in 2**a-1 downto 0 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_dto;
+  procedure lo_to (a : integer) is
+  begin
+    for i in 0 to 2**a-1 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_to;
 begin
 -- hold reset state for 100 ns.
 wait for 100 ns;
 -- insert stimulus here
 --i_order <= "01000101";
 --i_order <= "01111110";
---i_order <= "11111111";
+i_order <= (others => '1');
 --i_order <= "00000001";
 ml_sb_order <= '1';
-i_order <= "00000101";
-sel_shl_shr <= "000"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "111"; wait for 100 ns;
-i_order <= "10100000";
-sel_shl_shr <= "111"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "000"; wait for 100 ns;
-i_order <= "10100000";
-sel_shl_shr <= "000"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "111"; wait for 100 ns;
-i_order <= "00000101";
-sel_shl_shr <= "111"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "000"; wait for 100 ns;
+--i_order <= "00000101";
+lo_to (n_bit);
+--i_order <= "10100000";
+lo_dto (n_bit);
+--i_order <= "10100000";
+lo_to (n_bit);
+--i_order <= "00000101";
+lo_dto (n_bit);
 ml_sb_order <= '0';
-i_order <= "00000101";
-sel_shl_shr <= "000"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "111"; wait for 100 ns;
-i_order <= "10100000";
-sel_shl_shr <= "111"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "000"; wait for 100 ns;
-i_order <= "10100000";
-sel_shl_shr <= "000"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "111"; wait for 100 ns;
-i_order <= "00000101";
-sel_shl_shr <= "111"; wait for 100 ns;
-sel_shl_shr <= "110"; wait for 100 ns;
-sel_shl_shr <= "101"; wait for 100 ns;
-sel_shl_shr <= "100"; wait for 100 ns;
-sel_shl_shr <= "011"; wait for 100 ns;
-sel_shl_shr <= "010"; wait for 100 ns;
-sel_shl_shr <= "001"; wait for 100 ns;
-sel_shl_shr <= "000"; wait for 100 ns;
+--i_order <= "00000101";
+lo_to (n_bit);
+--i_order <= "10100000";
+lo_dto (n_bit);
+--i_order <= "10100000";
+lo_to (n_bit);
+--i_order <= "00000101";
+lo_dto (n_bit);
+report "tb done" severity failure;
+wait;
+end process;
+
+END;
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+USE ieee.numeric_std.ALL;
+
+ENTITY tb_barrel_shifter_vhdl_4 IS
+END tb_barrel_shifter_vhdl_4;
+
+ARCHITECTURE behavior OF tb_barrel_shifter_vhdl_4 IS
+
+constant n_bit : integer := 4;
+
+-- Component Declaration for the Unit Under Test (UUT)
+component barrel_shifter_vhdl is
+  generic (n : integer := n_bit);
+  port (
+    o_order     : out std_logic_vector (2 ** n - 1 downto 0);
+    i_order     : in  std_logic_vector (2 ** n - 1 downto 0);
+    sel_shl_shr : in  std_logic_vector (n      - 1 downto 0);
+    ml_sb_order : in  std_logic
+  );
+end component barrel_shifter_vhdl;
+
+--Inputs
+signal i_order : std_logic_vector(2 ** n_bit - 1 downto 0) := (others => '0');
+signal sel_shl_shr : std_logic_vector(n_bit - 1 downto 0) := (others => '0');
+signal ml_sb_order : std_logic := '0';
+
+--Outputs
+signal o_order : std_logic_vector(2 ** n_bit - 1 downto 0);
+
+BEGIN
+
+-- Instantiate the Unit Under Test (UUT)
+uut : barrel_shifter_vhdl PORT MAP (
+o_order => o_order,
+i_order => i_order,
+sel_shl_shr => sel_shl_shr,
+ml_sb_order => ml_sb_order
+);
+
+-- Stimulus process
+stim_proc: process
+  procedure lo_dto (a : integer) is
+  begin
+    for i in 2**a-1 downto 0 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_dto;
+  procedure lo_to (a : integer) is
+  begin
+    for i in 0 to 2**a-1 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_to;
+begin
+-- hold reset state for 100 ns.
+wait for 100 ns;
+-- insert stimulus here
+--i_order <= "01000101";
+--i_order <= "01111110";
+i_order <= (others => '1');
+--i_order <= "00000001";
+ml_sb_order <= '1';
+--i_order <= "0000000000000101";
+lo_to (n_bit);
+--i_order <= "1010000000000000";
+lo_dto (n_bit);
+--i_order <= "1010000000000000";
+lo_to (n_bit);
+--i_order <= "0000000000000101";
+lo_dto (n_bit);
+ml_sb_order <= '0';
+--i_order <= "0000000000000101";
+lo_to (n_bit);
+--i_order <= "1010000000000000";
+lo_dto (n_bit);
+--i_order <= "1010000000000000";
+lo_to (n_bit);
+--i_order <= "0000000000000101";
+lo_dto (n_bit);
+report "tb done" severity failure;
+wait;
+end process;
+
+END;
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+USE ieee.numeric_std.ALL;
+
+ENTITY tb_barrel_shifter_vhdl_5 IS
+END tb_barrel_shifter_vhdl_5;
+
+ARCHITECTURE behavior OF tb_barrel_shifter_vhdl_5 IS
+
+constant n_bit : integer := 5;
+
+-- Component Declaration for the Unit Under Test (UUT)
+component barrel_shifter_vhdl is
+  generic (n : integer := n_bit);
+  port (
+    o_order     : out std_logic_vector (2 ** n - 1 downto 0);
+    i_order     : in  std_logic_vector (2 ** n - 1 downto 0);
+    sel_shl_shr : in  std_logic_vector (n      - 1 downto 0);
+    ml_sb_order : in  std_logic
+  );
+end component barrel_shifter_vhdl;
+
+--Inputs
+signal i_order : std_logic_vector(2 ** n_bit - 1 downto 0) := (others => '0');
+signal sel_shl_shr : std_logic_vector(n_bit - 1 downto 0) := (others => '0');
+signal ml_sb_order : std_logic := '0';
+
+--Outputs
+signal o_order : std_logic_vector(2 ** n_bit - 1 downto 0);
+
+BEGIN
+
+-- Instantiate the Unit Under Test (UUT)
+uut : barrel_shifter_vhdl PORT MAP (
+o_order => o_order,
+i_order => i_order,
+sel_shl_shr => sel_shl_shr,
+ml_sb_order => ml_sb_order
+);
+
+-- Stimulus process
+stim_proc: process
+  procedure lo_dto (a : integer) is
+  begin
+    for i in 2**a-1 downto 0 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_dto;
+  procedure lo_to (a : integer) is
+  begin
+    for i in 0 to 2**a-1 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_to;
+begin
+-- hold reset state for 100 ns.
+wait for 100 ns;
+-- insert stimulus here
+--i_order <= "01000101";
+--i_order <= "01111110";
+i_order <= (others => '1');
+--i_order <= "00000001";
+ml_sb_order <= '1';
+--i_order <= "00000000000000000000000000000101";
+lo_to (n_bit);
+--i_order <= "10100000000000000000000000000000";
+lo_dto (n_bit);
+--i_order <= "10100000000000000000000000000000";
+lo_to (n_bit);
+--i_order <= "00000000000000000000000000000101";
+lo_dto (n_bit);
+ml_sb_order <= '0';
+--i_order <= "00000000000000000000000000000101";
+lo_to (n_bit);
+--i_order <= "10100000000000000000000000000000";
+lo_dto (n_bit);
+--i_order <= "10100000000000000000000000000000";
+lo_to (n_bit);
+--i_order <= "00000000000000000000000000000101";
+lo_dto (n_bit);
+report "tb done" severity failure;
+wait;
+end process;
+
+END;
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+USE ieee.numeric_std.ALL;
+
+ENTITY tb_barrel_shifter_vhdl_2 IS
+END tb_barrel_shifter_vhdl_2;
+
+ARCHITECTURE behavior OF tb_barrel_shifter_vhdl_2 IS
+
+constant n_bit : integer := 2;
+
+-- Component Declaration for the Unit Under Test (UUT)
+component barrel_shifter_vhdl is
+  generic (n : integer := n_bit);
+  port (
+    o_order     : out std_logic_vector (2 ** n - 1 downto 0);
+    i_order     : in  std_logic_vector (2 ** n - 1 downto 0);
+    sel_shl_shr : in  std_logic_vector (n      - 1 downto 0);
+    ml_sb_order : in  std_logic
+  );
+end component barrel_shifter_vhdl;
+
+--Inputs
+signal i_order : std_logic_vector(2 ** n_bit - 1 downto 0) := (others => '0');
+signal sel_shl_shr : std_logic_vector(n_bit - 1 downto 0) := (others => '0');
+signal ml_sb_order : std_logic := '0';
+
+--Outputs
+signal o_order : std_logic_vector(2 ** n_bit - 1 downto 0);
+
+BEGIN
+
+-- Instantiate the Unit Under Test (UUT)
+uut : barrel_shifter_vhdl PORT MAP (
+o_order => o_order,
+i_order => i_order,
+sel_shl_shr => sel_shl_shr,
+ml_sb_order => ml_sb_order
+);
+
+-- Stimulus process
+stim_proc: process
+  procedure lo_dto (a : integer) is
+  begin
+    for i in 2**a-1 downto 0 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_dto;
+  procedure lo_to (a : integer) is
+  begin
+    for i in 0 to 2**a-1 loop
+      sel_shl_shr <= std_logic_vector (to_unsigned (i, a));
+      wait for 100 ns;
+    end loop;
+  end procedure lo_to;
+begin
+-- hold reset state for 100 ns.
+wait for 100 ns;
+-- insert stimulus here
+--i_order <= "01000101";
+--i_order <= "01111110";
+i_order <= (others => '1');
+--i_order <= "00000001";
+ml_sb_order <= '1';
+--i_order <= "00000101";
+lo_to (n_bit);
+--i_order <= "10100000";
+lo_dto (n_bit);
+--i_order <= "10100000";
+lo_to (n_bit);
+--i_order <= "00000101";
+lo_dto (n_bit);
+ml_sb_order <= '0';
+--i_order <= "00000101";
+lo_to (n_bit);
+--i_order <= "10100000";
+lo_dto (n_bit);
+--i_order <= "10100000";
+lo_to (n_bit);
+--i_order <= "00000101";
+lo_dto (n_bit);
 report "tb done" severity failure;
 wait;
 end process;
