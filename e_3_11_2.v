@@ -71,13 +71,13 @@ end
 genvar i;
 
 generate
-  for (i = 0; i < 16; i = i + 1) begin
+  for (i = 0; i < 16; i = i + 1) begin : g1
     not not_first_dec (first_dec_neg[i], first_dec[i]);
   end
 endgenerate
 
 generate
-  for (i = 0; i < 12; i = i + 1) begin
+  for (i = 0; i < 12; i = i + 1) begin : g2
     and and_req_not_first_dec (second1w[i], req[i], first_dec_neg[i]);
   end
 endgenerate
