@@ -24,54 +24,101 @@
 
 module tb_bcd_incrementer_1_logic_expression;
 
-// Outputs
+// Inputs
 reg [3:0] in;
-reg [3:0] out;
-reg overflow;
-reg clk;
+
+// Outputs
+wire [3:0] out;
+wire overflow;
 
 // Instantiate the Unit Under Test (UUT)
 bcd_incrementer_1_logic_expression uut (
 .out (out),
 .overflow (overflow),
-.in (in),
-.clk (clk)
+.in (in)
 );
-
-always
-begin
-#5 clk = 1; // Clock remains low for time dlow
-// before transitioning to 1
-#5 clk = 0; // Clock remains high for time dhigh
-// before transitioning to 0
-end;
 
 initial begin
 // Initialize Inputs
-out = 0;
-overflow = 0;
 in = 0;
-clk = 0;
 
 // Wait 100 ns for global reset to finish
 #100;
 
 // Add stimulus here
+// 0 - 9
 in = 4'b0000; #100;
 in = 4'b0001; #100;
-in = 4'b1001; #100;
-in = 4'b1000; #100;
 in = 4'b0010; #100;
-in = 4'b1001; #100;
-in = 4'b1000; #100;
-in = 4'b0001; #100;
-in = 4'b0000; #100;
 in = 4'b0011; #100;
-in = 4'b1001; #100;
-in = 4'b0000; #100;
+in = 4'b0100; #100;
+in = 4'b0101; #100;
+in = 4'b0110; #100;
+in = 4'b0111; #100;
 in = 4'b1000; #100;
-in = 4'b0001; #100;
+in = 4'b1001; #100;
+#100;
+// 0 - 9
 in = 4'b0000; #100;
+in = 4'b0001; #100;
+in = 4'b0010; #100;
+in = 4'b0011; #100;
+in = 4'b0100; #100;
+in = 4'b0101; #100;
+in = 4'b0110; #100;
+in = 4'b0111; #100;
+in = 4'b1000; #100;
+in = 4'b1001; #100;
+#100;
+// 10 - 0
+in = 4'd10; #100;
+in = 4'd9; #100;
+in = 4'd8; #100;
+in = 4'd7; #100;
+in = 4'd6; #100;
+in = 4'd5; #100;
+in = 4'd4; #100;
+in = 4'd3; #100;
+in = 4'd2; #100;
+in = 4'd1; #100;
+in = 4'd0; #100;
+#100;
+// 10 - 0
+in = 4'd0; #100;
+in = 4'd1; #100;
+in = 4'd2; #100;
+in = 4'd3; #100;
+in = 4'd4; #100;
+in = 4'd5; #100;
+in = 4'd6; #100;
+in = 4'd7; #100;
+in = 4'd8; #100;
+in = 4'd9; #100;
+in = 4'd10; #100;
+#100;
+// 0,1,...,8,9,0
+in = 4'd0; #100;
+in = 4'd1; #100;
+in = 4'd0; #100;
+in = 4'd1; #100;
+in = 4'd0; #100;
+in = 4'd1; #100;
+in = 4'd0; #100;
+in = 4'd1; #100;
+in = 4'd8; #100;
+in = 4'd9; #100;
+in = 4'd0; #100;
+#100;
+in = 4'd8; #100;
+in = 4'd9; #100;
+in = 4'd10; #100;
+in = 4'd11; #100;
+in = 4'd12; #100;
+in = 4'd13; #100;
+in = 4'd14; #100;
+in = 4'd15; #100;
+in = 4'd16; #100;
+
 $stop;
 
 end
@@ -81,21 +128,78 @@ endmodule
 
 module tb_e_3_11_3;
 
+// Inputs
+reg [11:0] in_test;
+reg en_test;
+
 // Outputs
 wire [11:0] out;
+wire overflow;
 
 // Instantiate the Unit Under Test (UUT)
 e_3_11_3 uut (
-.out(out)
+.out (out), .overflow (overflow), .in (in_test), .en (en_test)
 );
 
 initial begin
 // Initialize Inputs
+in_test = 0;
+en_test = 0;
 
 // Wait 100 ns for global reset to finish
 #100;
 
 // Add stimulus here
+en_test = 1'b0;
+
+in_test = 12'b000000000000; // 000
+# 200;
+in_test = 12'b000000000011; // 003
+# 200;
+in_test = 12'b000000100011; // 023
+# 200;
+in_test = 12'b000100100011; // 123
+# 200;
+in_test = 12'b000100101001; // 129
+# 200;
+in_test = 12'b000110010011; // 193
+# 200;
+in_test = 12'b100100100011; // 923
+# 200;
+in_test = 12'b000010011001; // 099
+# 200;
+in_test = 12'b100100001001; // 909
+# 200;
+in_test = 12'b100110010000; // 990
+# 200;
+in_test = 12'b100110011001; // 999
+# 200;
+
+en_test = 1'b1;
+
+in_test = 12'b000000000000; // 000
+# 200;
+in_test = 12'b000000000011; // 003
+# 200;
+in_test = 12'b000000100011; // 023
+# 200;
+in_test = 12'b000100100011; // 123
+# 200;
+in_test = 12'b000100101001; // 129
+# 200;
+in_test = 12'b000110010011; // 193
+# 200;
+in_test = 12'b100100100011; // 923
+# 200;
+in_test = 12'b000010011001; // 099
+# 200;
+in_test = 12'b100100001001; // 909
+# 200;
+in_test = 12'b100110010000; // 990
+# 200;
+in_test = 12'b100110011001; // 999
+# 200;
+$stop;
 
 end
 
