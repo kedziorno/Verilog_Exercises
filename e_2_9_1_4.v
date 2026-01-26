@@ -9,7 +9,7 @@
 // Project Name:   -
 // Target Devices: -
 // Tool versions:  -
-// Description:    -
+// Description:    Greater than 4 bit
 //
 // Dependencies: -
 //

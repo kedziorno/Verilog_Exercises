@@ -9,7 +9,7 @@
 // Project Name:    pong_p_chu
 // Target Devices:  -
 // Tool versions:   -
-// Description:     -
+// Description:     2-4 decoder
 //
 // Dependencies: -
 //
