@@ -157,16 +157,17 @@ reg [12:0] fp13;
 
 // Outputs
 wire [7:0] s8;
+wire of, uf;
 
 // Instantiate the Unit Under Test (UUT)
-e_3_11_5_5 uut (.s8(s8), .fp13(fp13));
+e_3_11_5_5 uut (.s8(s8), .of (of), .uf (uf), .fp13(fp13));
 
 initial begin
 // Initialize Inputs
-fp13 = 0;
+//fp13 = 0;
 
 // Wait 100 ns for global reset to finish
-#100;
+//#10;
 
 // Add stimulus here
 fp13 = 13'b0000000000000; // +0.00000000 * 2^0 (+0)
@@ -209,6 +210,32 @@ fp13 = 13'b0111111111111; // +0.11111111 * 2^15 (+32460)
 # 10;
 fp13 = 13'b1111111111111; // -0.11111111 * 2^15 (-32460)
 # 10;
+$stop;
+end
+
+reg [7:0] tb_out;
+initial begin
+tb_out = 0;
+# 10;
+tb_out = 8'h80; #10;
+tb_out = 8'h00; #10;
+tb_out = 8'h80; #10;
+tb_out = 8'h00; #10;
+tb_out = 8'h80; #10;
+tb_out = 8'h01; #10;
+tb_out = 8'h81; #10;
+tb_out = 8'h01; #10;
+tb_out = 8'h81; #10;
+tb_out = 8'h02; #10;
+tb_out = 8'h82; #10;
+tb_out = 8'h24; #10;
+tb_out = 8'ha4; #10;
+tb_out = 8'h7f; #10;
+tb_out = 8'hff; #10;
+tb_out = 8'h7f; #10;
+tb_out = 8'hff; #10;
+tb_out = 8'h7f; #10;
+tb_out = 8'hff; #10;
 $stop;
 end
 

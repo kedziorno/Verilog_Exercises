@@ -90,7 +90,7 @@ wait for 100 ns;
 -- insert stimulus here
 --i_order <= "01000101";
 --i_order <= "01111110";
-i_order <= (others => '1');
+i_order <= x"fe";
 --i_order <= "00000001";
 ml_sb_order <= '1';
 --i_order <= "00000101";
