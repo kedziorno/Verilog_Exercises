@@ -15,7 +15,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: -
+// Additional Comments: Pure CL / LE (only gates).
 //
 //////////////////////////////////////////////////////////////////////////////////
 module eq2_logic_expression (eq2, a0, a1, b0, b1);
