@@ -129,7 +129,7 @@ module e_3_11_5_1 (fp13, s8);
   assign fp13[7:0]  = fp_f; // 8-bit fraction
 endmodule
 
-module mux41bits #(bits=1) (y, s0, s1, i0, i1, i2, i3);
+module mux41bits #(parameter bits=1) (y, s0, s1, i0, i1, i2, i3);
   output y;
   input s0, s1, i0, i1, i2, i3;
   wire [bits-1:0] y, i0, i1, i2, i3;

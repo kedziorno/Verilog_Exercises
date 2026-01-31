@@ -148,6 +148,23 @@ s8 = 8'b11111111; // -127
 $stop;
 end
 
+reg [12:0] tb_out;
+
+initial begin
+tb_out = 13'h0; # 10;
+tb_out = 13'h0; # 10;
+tb_out = 13'h1000; # 10;
+tb_out = 13'h0180; # 10;
+tb_out = 13'h1180; # 10;
+tb_out = 13'h0280; # 10;
+tb_out = 13'h1280; # 10;
+tb_out = 13'h0690; # 10;
+tb_out = 13'h1690; # 10;
+tb_out = 13'h07fe; # 10;
+tb_out = 13'h17fe; # 10;
+$stop;
+end
+
 endmodule
 
 module tb_e_3_11_5_5;
