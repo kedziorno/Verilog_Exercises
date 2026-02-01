@@ -152,6 +152,27 @@ module adder_4 (y, co, a, b, ci);
   );
 endmodule
 
+module adder_8 (y, a, b);
+  output y;
+  input a, b;
+
+  wire [7:0] y;
+  wire [7:0] a, b;
+
+  wire [1:0] co1;
+
+  adder_4 ar_1 (
+    .y  (y[7:4]),
+    .co (co1[1]), .ci (co1[0]),
+    .a  (a[7:4]), .b  (b[7:4])
+  );
+  adder_4 ar_0 (
+    .y  (y[3:0]),
+    .co (co1[0]), .ci (1'b0),
+    .a  (a[3:0]), .b  (b[3:0])
+  );
+endmodule
+
 module adder_12 (y, a, b);
   output y;
   input a, b;
@@ -178,19 +199,45 @@ module adder_12 (y, a, b);
   );
 endmodule
 
+module prio_enc_8_3_reverse (y, x); // XXX make tb
+  output y;
+  input x;
+
+  wire [2:0] y;
+  wire [7:0] x;
+
+  assign y[0] =
+  (~x[7] &  x[6]) |
+  (~x[7] & ~x[6] & ~x[5] &  x[4]) |
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] &  x[2]) |
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & x[0]);
+
+  assign y[1] =
+  (~x[7] & ~x[6] &  x[5]) |
+  (~x[7] & ~x[6] & ~x[5] &  x[4]) |
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] &  x[1]) |
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & x[0]);
+
+  assign y[2] =
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] &  x[3]) |
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] &  x[2]) |
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] &  x[1]) |
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & x[0]);
+endmodule
+
 module e_3_11_6 (
   sign_out, exp_out, frac_out, sign1, exp1, frac1, sign2, exp2, frac2
 );
 output sign_out, exp_out, frac_out;
 input sign1, sign2, exp1, exp2, frac1, frac2;
 
-reg sign_out;
-reg [3:0] exp_out;
-reg [7:0] frac_out;
+wire sign_out;
+wire [3:0] exp_out;
+wire [7:0] frac_out;
 wire sign1, sign2;
 wire [3:0] exp1, exp2;
 wire [7:0] frac1, frac2;
- 
+
 // b, s, a, n
 // big , small , aligned , normalized
 wire signb, signs;
@@ -244,8 +291,8 @@ wire [0:31] bs5_out;
 wire [7:0] fraca;
 wire ga, ra, sa;
 wire [13:0] pre_sticky;
- 
-barrel_shifter_verilog #(.n(5)) uut (
+
+barrel_shifter_verilog #(.n(5)) bs5_1_uut (
   .o_order     (bs5_out),
   .i_order     ({24'b0,fracs}),
   .sel_shl_shr ({1'b0,s4_exp}),
@@ -263,6 +310,7 @@ assign pre_sticky = bs5_out[10:23];
 assign sa = |pre_sticky;
 
 wire sign_bs;
+wire gn = 0, rn = 0, sn = 0;
 
 assign sign_bs = signb & signs;
 
@@ -304,5 +352,171 @@ m2_1 mux2_1_rs (
 m2_1 mux2_1_ss (
   .o (ss), .d0 (ss_n), .d1 (ss_p), .s0 (sign_bs)
 );
+
+wire [2:0] lead0;
+prio_enc_8_3_reverse pe83_r (.y (lead0), .x (sum[7:0]));
+
+wire [15:0] bs4_out;
+
+barrel_shifter_verilog #(.n(4)) bs4_1_uut (
+  .o_order     (bs4_out),
+  .i_order     ({4'b0,sum,gs,rs,ss}),
+  .sel_shl_shr ({1'b0,lead0}),
+  .ml_sb_order (1'b0)
+);
+
+wire [7:0] sum_norm;
+
+wire gn_1, rn_1, sn_1;
+assign sum_norm = bs4_out[10:3];
+assign gn_1 = bs4_out[2];
+assign rn_1 = bs4_out[1];
+assign sn_1 = bs4_out[0];
+
+wire gt_lead0_expb;
+comp_gt4 gt_lead0_expb_uut (
+  .gt4 (gt_lead0_expb),
+  .a   ({1'b0,lead0}),
+  .b   (expb)
+);
+
+wire [1:0] mux41_select;
+prio_enc_4_2 pe42 (
+  .y1 (mux41_select[1]),
+  .y0 (mux41_select[0]),
+  .x3 (1'b1         ),
+  .x2 (gt_lead0_expb),
+  .x1 (sum[8]       ),
+  .x0 (1'b0         )
+);
+
+wire [3:0] ar4_expn;
+adder_4 ar4_expb_1 (
+  .y (ar4_expn),
+  .ci (1'b0),
+  .a (expb),
+  .b (4'b1)
+);
+
+wire [3:0] st4_expn;
+subtractor_4 st4_expb_1 (
+  .y (st4_expn),
+  .a (expb),
+  .b ({1'b0,lead0})
+);
+
+wire [3:0] zero_40 = 0;
+
+generate
+  for (i = 0; i < 4; i = i + 1) begin : g0_expn
+    mux41 mux41_expn (
+      .y  (expn[i]),
+      .s1 (mux41_select[1]),
+      .s0 (mux41_select[0]),
+      .i3 (st4_expn[i]),
+      .i2 (zero_40[i]),
+      .i1 (ar4_expn[i]),
+      .i0 (zero_40[i])
+    );
+  end
+endgenerate
+
+wire [7:0] fracn;
+wire [3:0] expn;
+wire [7:0] zero_80 = 0;
+
+wire [7:0] mux41_fracn_sum;
+assign mux41_fracn_sum[7] = sum[8];
+assign mux41_fracn_sum[6] = sum[7];
+assign mux41_fracn_sum[5] = sum[6];
+assign mux41_fracn_sum[4] = sum[5];
+assign mux41_fracn_sum[3] = sum[4];
+assign mux41_fracn_sum[2] = sum[3];
+assign mux41_fracn_sum[1] = sum[2];
+assign mux41_fracn_sum[0] = sum[1];
+
+generate
+  for (i = 0; i < 8; i = i + 1) begin : g0_fracn
+    mux41 mux41_fracn (
+      .y  (fracn[i]),
+      .s1 (mux41_select[1]),
+      .s0 (mux41_select[0]),
+      .i3 (sum_norm[i]),
+      .i2 (zero_80[i]),
+      .i1 (mux41_fracn_sum[i]),
+      .i0 (zero_80[i])
+    );
+  end
+endgenerate
+
+wire zero_0 = 0;
+
+mux41 mux41_gn (
+  .y  (gn),
+  .s1 (mux41_select[1]),
+  .s0 (mux41_select[0]),
+  .i3 (gn_1),
+  .i2 (gn_1),
+  .i1 (sum[0]),
+  .i0 (zero_0)
+);
+
+mux41 mux41_rn (
+  .y  (rn),
+  .s1 (mux41_select[1]),
+  .s0 (mux41_select[0]),
+  .i3 (rn_1),
+  .i2 (rn_1),
+  .i1 (gn_1),
+  .i0 (zero_0)
+);
+
+mux41 mux41_sn (
+  .y  (sn),
+  .s1 (mux41_select[1]),
+  .s0 (mux41_select[0]),
+  .i3 (rn_1),
+  .i2 (rn_1),
+  .i1 (sn_1 | rn_1),
+  .i0 (zero_0)
+);
+
+wire [7:0] ar4_fracn_p1;
+adder_8 ar4_fracn_1 (
+  .y (ar4_fracn_p1),
+  .a (fracn),
+  .b (8'b00000001)
+);
+
+wire mux2_1_gn_1_fracn_p1;
+assign mux2_1_gn_1_fracn_p1 = ~rn & ~sn & fracn[0];
+
+wire [7:0] fracn_p1_out_1;
+generate
+  for (i = 0; i < 8; i = i + 1) begin : g0_fracn_p1
+    m2_1 mux21_fracn_p1 (
+      .o  (fracn_p1_out_1[i]),
+      .d1 (ar4_fracn_p1[i]),
+      .d0 (fracn[i]),
+      .s0 (mux2_1_gn_1_fracn_p1)
+    );
+  end
+endgenerate
+
+wire [7:0] fracn_p1_out;
+generate
+  for (i = 0; i < 8; i = i + 1) begin : g0_gn_fracn_p1
+    m2_1 mux21_fracn_p1 (
+      .o  (fracn_p1_out[i]),
+      .d1 (fracn_p1_out_1[i]),
+      .d0 (fracn[i]),
+      .s0 (gn)
+    );
+  end
+endgenerate
+
+assign sign_out = signb;
+assign exp_out = expn;
+assign frac_out = fracn_p1_out;
 
 endmodule

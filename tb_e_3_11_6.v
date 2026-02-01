@@ -219,16 +219,17 @@ exp2 = 0;
 frac2 = 0;
 
 // Wait 100 ns for global reset to finish
-#100;
+#10;
 
 // Add stimulus here
 // variables based on https://embeddedsystemengineering.blogspot.com/2016/08/verilog-tutorial-4-modelsim-simplified.html
+// XXX : renew from https://flop.evanau.dev/arbitrary-float-converter
 // Group 1
-// a = +0.68E3, b = +0.86E3 
+// a = 13.3125, b = 14.71875
 sign1 = 1'b1; exp1 = 4'b1010; frac1 = 8'b10101010;
 sign2 = 1'b0; exp2 = 4'b1010; frac2 = 8'b11010111;
 # 10;
-// a = -0.68E3, b = +0.86E3
+// a = -13.3125, b = 14.71875
 sign1 = 1'b1; exp1 = 4'b1010; frac1 = 8'b10101010;
 sign2 = 1'b0; exp2 = 4'b1010; frac2 = 8'b11010111;
 # 10;

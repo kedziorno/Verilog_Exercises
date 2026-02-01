@@ -34,3 +34,14 @@ eq2_structural_primitive node3 (p3, a[3:2], b[3:2]);
 assign gt4 = ~(~(p2&p3) & ~p1);
 
 endmodule
+
+module comp_gt4 (gt4, a, b);
+output gt4;
+input a, b;
+
+wire gt4;
+wire [3:0] a, b;
+
+e_2_9_1_4 (.gt4 (gt4), .a (a), .b (b));
+
+endmodule
