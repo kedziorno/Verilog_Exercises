@@ -238,6 +238,10 @@ wire sign1, sign2;
 wire [3:0] exp1, exp2;
 wire [7:0] frac1, frac2;
 
+wire [7:0] fracn;
+wire [3:0] expn;
+wire [7:0] zero_80 = 0;
+
 // b, s, a, n
 // big , small , aligned , normalized
 wire signb, signs;
@@ -256,26 +260,26 @@ comp_gt12 comp_gt12_e_f_ab_uut (
 );
 
 // larger number - b/s
-m2_1 mux2_1_gt_signb (.o (signb), .d0 (sign1), .d1 (sign2), .s0 (gt_fp13_ab));
-m2_1 mux2_1_gt_signs (.o (signs), .d0 (sign2), .d1 (sign1), .s0 (gt_fp13_ab));
+m2_1 mux2_1_gt_signb (.o (signb), .d0 (sign2), .d1 (sign1), .s0 (gt_fp13_ab));
+m2_1 mux2_1_gt_signs (.o (signs), .d0 (sign1), .d1 (sign2), .s0 (gt_fp13_ab));
 genvar i;
 generate
   for (i = 0; i < 4; i = i + 1) begin : g0_exp
     m2_1 mux2_1_gt_expb (
-      .o (expb[i]), .d0 (exp1[i]), .d1 (exp2[i]), .s0 (gt_fp13_ab)
+      .o (expb[i]), .d0 (exp2[i]), .d1 (exp1[i]), .s0 (gt_fp13_ab)
     );
     m2_1 mux2_1_gt_exps (
-      .o (exps[i]), .d0 (exp2[i]), .d1 (exp1[i]), .s0 (gt_fp13_ab)
+      .o (exps[i]), .d0 (exp1[i]), .d1 (exp2[i]), .s0 (gt_fp13_ab)
     );
   end
 endgenerate
 generate
   for (i = 0; i < 8; i = i + 1) begin : g0_frac
     m2_1 mux2_1_gt_fracb (
-      .o (fracb[i]), .d0 (frac1[i]), .d1 (frac2[i]), .s0 (gt_fp13_ab)
+      .o (fracb[i]), .d0 (frac2[i]), .d1 (frac1[i]), .s0 (gt_fp13_ab)
     );
     m2_1 mux2_1_gt_fracs (
-      .o (fracs[i]), .d0 (frac2[i]), .d1 (frac1[i]), .s0 (gt_fp13_ab)
+      .o (fracs[i]), .d0 (frac1[i]), .d1 (frac2[i]), .s0 (gt_fp13_ab)
     );
   end
 endgenerate
@@ -287,32 +291,40 @@ subtractor_4 s4_uut (
   .b (exps)
 );
 
-wire [0:31] bs5_out;
+wire [31:0] bs5_out;
+wire [0:31] bs5_out_r;
 wire [7:0] fraca;
 wire ga, ra, sa;
 wire [13:0] pre_sticky;
 
 barrel_shifter_verilog #(.n(5)) bs5_1_uut (
   .o_order     (bs5_out),
-  .i_order     ({24'b0,fracs}),
+  .i_order     ({16'b0,fracs,8'b0}),
   .sel_shl_shr ({1'b0,s4_exp}),
-  .ml_sb_order (1'b1)
+  .ml_sb_order (1'b0)
 );
 
-//assign fraca = bs5_out[16:23];
-//assign ga = bs5_out[15];
-//assign ra = bs5_out[14];
-//assign pre_sticky = bs5_out[0:13];
-assign fraca = bs5_out[0:7];
-assign ga = bs5_out[8];
-assign ra = bs5_out[9];
-assign pre_sticky = bs5_out[10:23];
+generate
+  for (i = 0; i < 32; i = i + 1) begin : REV
+    assign bs5_out_r[i] = bs5_out[31 - i];
+  end
+endgenerate
+
+//assign fraca = bs5_out[24:31];
+//assign ga = bs5_out[23];
+//assign ra = bs5_out[22];
+//assign pre_sticky = bs5_out[8:21];
+assign fraca = bs5_out_r[16:23];
+assign ga = bs5_out_r[15];
+assign ra = bs5_out_r[14];
+assign pre_sticky = bs5_out_r[0:13];
+
 assign sa = |pre_sticky;
 
 wire sign_bs;
-wire gn = 0, rn = 0, sn = 0;
+wire gn, rn, sn;
 
-assign sign_bs = signb & signs;
+assign sign_bs = ~(signb ^ signs);
 
 wire [8:0] sum_p, sum_n;
 wire gs_p, rs_p, ss_p;
@@ -339,22 +351,33 @@ generate
       .o (sum[i]), .d0 (sum_n[i]), .d1 (sum_p[i]), .s0 (sign_bs)
     );
   end
-endgenerate;
+endgenerate
 
 m2_1 mux2_1_gs (
-  .o (gs), .d0 (gs_n), .d1 (gs_p), .s0 (sign_bs)
+  .o (gs), .d0 (gs_p), .d1 (gs_n), .s0 (sign_bs)
 );
 
 m2_1 mux2_1_rs (
-  .o (rs), .d0 (rs_n), .d1 (rs_p), .s0 (sign_bs)
+  .o (rs), .d0 (rs_p), .d1 (rs_n), .s0 (sign_bs)
 );
 
 m2_1 mux2_1_ss (
-  .o (ss), .d0 (ss_n), .d1 (ss_p), .s0 (sign_bs)
+  .o (ss), .d0 (ss_p), .d1 (ss_n), .s0 (sign_bs)
 );
 
+wire [7:0] sum_rev;
+
+assign sum_rev[7] = sum[0];
+assign sum_rev[6] = sum[1];
+assign sum_rev[5] = sum[2];
+assign sum_rev[4] = sum[3];
+assign sum_rev[3] = sum[4];
+assign sum_rev[2] = sum[5];
+assign sum_rev[1] = sum[6];
+assign sum_rev[0] = sum[7];
+
 wire [2:0] lead0;
-prio_enc_8_3_reverse pe83_r (.y (lead0), .x (sum[7:0]));
+prio_enc_8_3_reverse pe83_r (.y (lead0), .x (sum_rev[7:0]));
 
 wire [15:0] bs4_out;
 
@@ -362,7 +385,7 @@ barrel_shifter_verilog #(.n(4)) bs4_1_uut (
   .o_order     (bs4_out),
   .i_order     ({4'b0,sum,gs,rs,ss}),
   .sel_shl_shr ({1'b0,lead0}),
-  .ml_sb_order (1'b0)
+  .ml_sb_order (1'b1)
 );
 
 wire [7:0] sum_norm;
@@ -380,11 +403,12 @@ comp_gt4 gt_lead0_expb_uut (
   .b   (expb)
 );
 
+wire last_pe42 = ~sum[8] & ~gt_lead0_expb;
 wire [1:0] mux41_select;
 prio_enc_4_2 pe42 (
   .y1 (mux41_select[1]),
   .y0 (mux41_select[0]),
-  .x3 (1'b1         ),
+  .x3 (last_pe42    ),
   .x2 (gt_lead0_expb),
   .x1 (sum[8]       ),
   .x0 (1'b0         )
@@ -405,26 +429,6 @@ subtractor_4 st4_expb_1 (
   .b ({1'b0,lead0})
 );
 
-wire [3:0] zero_40 = 0;
-
-generate
-  for (i = 0; i < 4; i = i + 1) begin : g0_expn
-    mux41 mux41_expn (
-      .y  (expn[i]),
-      .s1 (mux41_select[1]),
-      .s0 (mux41_select[0]),
-      .i3 (st4_expn[i]),
-      .i2 (zero_40[i]),
-      .i1 (ar4_expn[i]),
-      .i0 (zero_40[i])
-    );
-  end
-endgenerate
-
-wire [7:0] fracn;
-wire [3:0] expn;
-wire [7:0] zero_80 = 0;
-
 wire [7:0] mux41_fracn_sum;
 assign mux41_fracn_sum[7] = sum[8];
 assign mux41_fracn_sum[6] = sum[7];
@@ -441,9 +445,9 @@ generate
       .y  (fracn[i]),
       .s1 (mux41_select[1]),
       .s0 (mux41_select[0]),
-      .i3 (sum_norm[i]),
-      .i2 (zero_80[i]),
-      .i1 (mux41_fracn_sum[i]),
+      .i3 (zero_80[i]),
+      .i2 (mux41_fracn_sum[i]),
+      .i1 (sum_norm[i]),
       .i0 (zero_80[i])
     );
   end
@@ -451,13 +455,29 @@ endgenerate
 
 wire zero_0 = 0;
 
+wire [3:0] zero_40 = 0;
+
+generate
+  for (i = 0; i < 4; i = i + 1) begin : g0_expn
+    mux41 mux41_expn (
+      .y  (expn[i]),
+      .s1 (mux41_select[1]),
+      .s0 (mux41_select[0]),
+      .i3 (zero_40[i]),
+      .i2 (ar4_expn[i]),
+      .i1 (st4_expn[i]),
+      .i0 (zero_40[i])
+    );
+  end
+endgenerate
+
 mux41 mux41_gn (
   .y  (gn),
   .s1 (mux41_select[1]),
   .s0 (mux41_select[0]),
-  .i3 (gn_1),
-  .i2 (gn_1),
-  .i1 (sum[0]),
+  .i3 (gn),
+  .i2 (sum[0]),
+  .i1 (gn),
   .i0 (zero_0)
 );
 
@@ -465,9 +485,9 @@ mux41 mux41_rn (
   .y  (rn),
   .s1 (mux41_select[1]),
   .s0 (mux41_select[0]),
-  .i3 (rn_1),
-  .i2 (rn_1),
-  .i1 (gn_1),
+  .i3 (rn),
+  .i2 (gn),
+  .i1 (rn),
   .i0 (zero_0)
 );
 
@@ -475,9 +495,9 @@ mux41 mux41_sn (
   .y  (sn),
   .s1 (mux41_select[1]),
   .s0 (mux41_select[0]),
-  .i3 (rn_1),
-  .i2 (rn_1),
-  .i1 (sn_1 | rn_1),
+  .i3 (rn),
+  .i2 (sn | rn),
+  .i1 (rn),
   .i0 (zero_0)
 );
 

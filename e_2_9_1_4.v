@@ -42,6 +42,6 @@ input a, b;
 wire gt4;
 wire [3:0] a, b;
 
-e_2_9_1_4 (.gt4 (gt4), .a (a), .b (b));
+e_2_9_1_4 gt4_uut (.gt4 (gt4), .a (a), .b (b));
 
 endmodule
