@@ -210,19 +210,19 @@ module prio_enc_8_3_reverse (y, x); // XXX make tb
   (~x[7] &  x[6]) |
   (~x[7] & ~x[6] & ~x[5] &  x[4]) |
   (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] &  x[2]) |
-  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & x[0]);
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & ~x[0]);
 
   assign y[1] =
   (~x[7] & ~x[6] &  x[5]) |
   (~x[7] & ~x[6] & ~x[5] &  x[4]) |
   (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] &  x[1]) |
-  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & x[0]);
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & ~x[0]);
 
   assign y[2] =
   (~x[7] & ~x[6] & ~x[5] & ~x[4] &  x[3]) |
   (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] &  x[2]) |
   (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] &  x[1]) |
-  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & x[0]);
+  (~x[7] & ~x[6] & ~x[5] & ~x[4] & ~x[3] & ~x[2] & ~x[1] & ~x[0]);
 endmodule
 
 module e_3_11_6 (
@@ -291,15 +291,25 @@ subtractor_4 s4_uut (
   .b (exps)
 );
 
+wire [7:0] fracs_rev;
+assign fracs_rev[7] = fracs[0];
+assign fracs_rev[6] = fracs[1];
+assign fracs_rev[5] = fracs[2];
+assign fracs_rev[4] = fracs[3];
+assign fracs_rev[3] = fracs[4];
+assign fracs_rev[2] = fracs[5];
+assign fracs_rev[1] = fracs[6];
+assign fracs_rev[0] = fracs[7];
+
 wire [31:0] bs5_out;
 wire [0:31] bs5_out_r;
-wire [7:0] fraca;
+wire [7:0] fraca, fraca_rev;
 wire ga, ra, sa;
 wire [13:0] pre_sticky;
 
 barrel_shifter_verilog #(.n(5)) bs5_1_uut (
   .o_order     (bs5_out),
-  .i_order     ({16'b0,fracs,8'b0}),
+  .i_order     ({8'b0,fracs_rev,16'b0}),
   .sel_shl_shr ({1'b0,s4_exp}),
   .ml_sb_order (1'b0)
 );
@@ -314,10 +324,19 @@ endgenerate
 //assign ga = bs5_out[23];
 //assign ra = bs5_out[22];
 //assign pre_sticky = bs5_out[8:21];
-assign fraca = bs5_out_r[16:23];
-assign ga = bs5_out_r[15];
-assign ra = bs5_out_r[14];
-assign pre_sticky = bs5_out_r[0:13];
+assign fraca_rev = bs5_out_r[8:15];
+assign ga = bs5_out_r[7];
+assign ra = bs5_out_r[6];
+assign pre_sticky = bs5_out_r[0:5];
+
+assign fraca[7] = fraca_rev[0];
+assign fraca[6] = fraca_rev[1];
+assign fraca[5] = fraca_rev[2];
+assign fraca[4] = fraca_rev[3];
+assign fraca[3] = fraca_rev[4];
+assign fraca[2] = fraca_rev[5];
+assign fraca[1] = fraca_rev[6];
+assign fraca[0] = fraca_rev[7];
 
 assign sa = |pre_sticky;
 
@@ -365,7 +384,7 @@ m2_1 mux2_1_ss (
   .o (ss), .d0 (ss_p), .d1 (ss_n), .s0 (sign_bs)
 );
 
-wire [7:0] sum_rev;
+wire [8:0] sum_rev;
 
 assign sum_rev[7] = sum[0];
 assign sum_rev[6] = sum[1];
@@ -377,7 +396,8 @@ assign sum_rev[1] = sum[6];
 assign sum_rev[0] = sum[7];
 
 wire [2:0] lead0;
-prio_enc_8_3_reverse pe83_r (.y (lead0), .x (sum_rev[7:0]));
+//prio_enc_8_3_reverse pe83_r (.y (lead0), .x (sum_rev[7:0]));
+prio_enc_8_3_reverse pe83_r (.y (lead0), .x (sum[7:0]));
 
 wire [15:0] bs4_out;
 
@@ -385,7 +405,7 @@ barrel_shifter_verilog #(.n(4)) bs4_1_uut (
   .o_order     (bs4_out),
   .i_order     ({4'b0,sum,gs,rs,ss}),
   .sel_shl_shr ({1'b0,lead0}),
-  .ml_sb_order (1'b1)
+  .ml_sb_order (1'b0)
 );
 
 wire [7:0] sum_norm;
@@ -445,9 +465,9 @@ generate
       .y  (fracn[i]),
       .s1 (mux41_select[1]),
       .s0 (mux41_select[0]),
-      .i3 (zero_80[i]),
+      .i3 (sum_norm[i]),
       .i2 (mux41_fracn_sum[i]),
-      .i1 (sum_norm[i]),
+      .i1 (zero_80[i]),
       .i0 (zero_80[i])
     );
   end
@@ -463,9 +483,9 @@ generate
       .y  (expn[i]),
       .s1 (mux41_select[1]),
       .s0 (mux41_select[0]),
-      .i3 (zero_40[i]),
+      .i3 (st4_expn[i]),
       .i2 (ar4_expn[i]),
-      .i1 (st4_expn[i]),
+      .i1 (zero_40[i]),
       .i0 (zero_40[i])
     );
   end

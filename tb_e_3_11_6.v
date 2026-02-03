@@ -211,7 +211,24 @@ e_3_11_6 uut (
 
 reg [12:0] tb_out;
 
+wire [12:0] out_a, out_b, out_o;
+
+assign out_a[12] = sign1;
+assign out_a[11:8] = exp1;
+assign out_a[7:0] = frac1;
+
+assign out_b[12] = sign2;
+assign out_b[11:8] = exp2;
+assign out_b[7:0] = frac2;
+
+assign out_o[12] = sign_out;
+assign out_o[11:8] = exp_out;
+assign out_o[7:0] = frac_out;
+
 initial begin
+$dumpfile("out.vcd");
+$dumpvars(0, tb_e_3_11_6);
+
 // Initialize Inputs
 sign1 = 0;
 exp1 = 0;
@@ -329,42 +346,44 @@ sign1 = 1'b0; exp1 = 4'b0000; frac1 = 8'b00000000;
 sign2 = 1'b1; exp2 = 4'b0000; frac2 = 8'b00000000;
 # 10;
 
-$stop;
+$finish;
 end
 
 initial begin
+// XXX based on eadplayground buqT
 tb_out = 0;
 # 10;
 // g1
 tb_out = 13'h0bc0; # 10;
-tb_out = 13'h0768; # 10;
-tb_out = 13'h1768; # 10;
+tb_out = 13'h0300; # 10;
+tb_out = 13'h1300; # 10;
 tb_out = 13'h1bc0; # 10;
+//$finish;
 // g2
 tb_out = 13'h0bc0; # 10;
-tb_out = 13'h1768; # 10;
-tb_out = 13'h0768; # 10;
+tb_out = 13'h1300; # 10;
+tb_out = 13'h0300; # 10;
 tb_out = 13'h1bc0; # 10;
 // g3
-tb_out = 13'h0e07; # 10;
-tb_out = 13'h1d99; # 10;
-tb_out = 13'h0d99; # 10;
-tb_out = 13'h1e07; # 10;
+tb_out = 13'h0dee; # 10;
+tb_out = 13'h1eff; # 10;
+tb_out = 13'h0eff; # 10;
+tb_out = 13'h1dee; # 10;
 // g4
-tb_out = 13'h0ea0; # 10;
-tb_out = 13'h0e6b; # 10;
-tb_out = 13'h1e6b; # 10;
-tb_out = 13'h1ea0; # 10;
+tb_out = 13'h0e90; # 10;
+tb_out = 13'h0fff; # 10;
+tb_out = 13'h1fff; # 10;
+tb_out = 13'h1e90; # 10;
 // g5
-tb_out = 13'h018a; # 10;
-tb_out = 13'h102e; # 10;
+tb_out = 13'h01c5; # 10;
+tb_out = 13'h1000; # 10;
 // g6
-tb_out = 13'h015c; # 10;
-tb_out = 13'h115c; # 10;
+tb_out = 13'h01ae; # 10;
+tb_out = 13'h11ae; # 10;
 // g7
 tb_out = 13'h0000; # 10;
 tb_out = 13'h0000; # 10;
-$stop;
+$finish;
 end
 
 endmodule
