@@ -167,8 +167,8 @@ module prio_enc_4_2 (y1, y0, x3, x2, x1, x0);
   input x3, x2, x1, x0;
   wire y1, y0, x3, x2, x1, x0;
 
-  assign y1 = x3 + (~x3 *  x2     );
-  assign y0 = x3 + (~x3 * ~x2 * x1);
+  assign y1 = x3 | (~x3 *  x2     );
+  assign y0 = x3 | (~x3 * ~x2 * x1);
 endmodule
 
 // s8 -> fp13
