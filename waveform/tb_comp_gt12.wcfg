@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_comp_gt12_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_comp_gt12" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/tb_comp_gt12/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[11:0]</obj_property>
+      <obj_property name="ObjectShortName">a[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_comp_gt12/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[11:0]</obj_property>
+      <obj_property name="ObjectShortName">b[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_comp_gt12/gt12" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">gt12</obj_property>
+      <obj_property name="ObjectShortName">gt12</obj_property>
+   </wvobject>
+   <wvobject fp_name="group16" type="group">
+      <obj_property name="label">uut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_comp_gt12/uut/gt12" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gt12</obj_property>
+         <obj_property name="ObjectShortName">gt12</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[11:0]</obj_property>
+         <obj_property name="ObjectShortName">a[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[11:0]</obj_property>
+         <obj_property name="ObjectShortName">b[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/gt4_1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gt4_1</obj_property>
+         <obj_property name="ObjectShortName">gt4_1</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/gt4_2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gt4_2</obj_property>
+         <obj_property name="ObjectShortName">gt4_2</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/gt4_3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gt4_3</obj_property>
+         <obj_property name="ObjectShortName">gt4_3</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/eq2_1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">eq2_1</obj_property>
+         <obj_property name="ObjectShortName">eq2_1</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/eq2_2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">eq2_2</obj_property>
+         <obj_property name="ObjectShortName">eq2_2</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/eq2_3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">eq2_3</obj_property>
+         <obj_property name="ObjectShortName">eq2_3</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/eq2_4" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">eq2_4</obj_property>
+         <obj_property name="ObjectShortName">eq2_4</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/eq2_5" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">eq2_5</obj_property>
+         <obj_property name="ObjectShortName">eq2_5</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_gt12/uut/eq_12" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">eq_12</obj_property>
+         <obj_property name="ObjectShortName">eq_12</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

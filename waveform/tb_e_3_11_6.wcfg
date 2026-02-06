@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_3_11_6_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_3_11_6" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="vbus198" type="vbus" db_ref_id="1">
+      <obj_property name="label">fpa</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/sign1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sign1</obj_property>
+         <obj_property name="ObjectShortName">sign1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/exp1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">exp1[3:0]</obj_property>
+         <obj_property name="ObjectShortName">exp1[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/frac1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">frac1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">frac1[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="vbus199" type="vbus" db_ref_id="1">
+      <obj_property name="label">fpb</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/sign2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sign2</obj_property>
+         <obj_property name="ObjectShortName">sign2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/exp2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">exp2[3:0]</obj_property>
+         <obj_property name="ObjectShortName">exp2[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/frac2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">frac2[7:0]</obj_property>
+         <obj_property name="ObjectShortName">frac2[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_e_3_11_6/tb_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">tb_out[12:0]</obj_property>
+      <obj_property name="ObjectShortName">tb_out[12:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus197" type="vbus" db_ref_id="1">
+      <obj_property name="label">fpo</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/sign_out" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sign_out</obj_property>
+         <obj_property name="ObjectShortName">sign_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/exp_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">exp_out[3:0]</obj_property>
+         <obj_property name="ObjectShortName">exp_out[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/frac_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">frac_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">frac_out[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group196" type="group">
+      <obj_property name="label">uut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/uut/gt_fp13_ab" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gt_fp13_ab</obj_property>
+         <obj_property name="ObjectShortName">gt_fp13_ab</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/s4_exp" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s4_exp[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s4_exp[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_out_r" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bs5_out_r[0:31]</obj_property>
+         <obj_property name="ObjectShortName">bs5_out_r[0:31]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/fraca" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">fraca[7:0]</obj_property>
+         <obj_property name="ObjectShortName">fraca[7:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/pre_sticky" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">pre_sticky[13:0]</obj_property>
+         <obj_property name="ObjectShortName">pre_sticky[13:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sign_bs" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sign_bs</obj_property>
+         <obj_property name="ObjectShortName">sign_bs</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum_n" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum_n[8:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_n[8:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum_p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum_p[8:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_p[8:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum[8:0]</obj_property>
+         <obj_property name="ObjectShortName">sum[8:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/ga" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ga</obj_property>
+         <obj_property name="ObjectShortName">ga</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/ra" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ra</obj_property>
+         <obj_property name="ObjectShortName">ra</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sa" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sa</obj_property>
+         <obj_property name="ObjectShortName">sa</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/gn" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gn</obj_property>
+         <obj_property name="ObjectShortName">gn</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/rn" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rn</obj_property>
+         <obj_property name="ObjectShortName">rn</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sn" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sn</obj_property>
+         <obj_property name="ObjectShortName">sn</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/gs" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gs</obj_property>
+         <obj_property name="ObjectShortName">gs</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/rs" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">rs</obj_property>
+         <obj_property name="ObjectShortName">rs</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#00ffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/ss" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ss</obj_property>
+         <obj_property name="ObjectShortName">ss</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/gt_lead0_expb" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">gt_lead0_expb</obj_property>
+         <obj_property name="ObjectShortName">gt_lead0_expb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/mux2_1_gn_1_fracn_p1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">mux2_1_gn_1_fracn_p1</obj_property>
+         <obj_property name="ObjectShortName">mux2_1_gn_1_fracn_p1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/mux41_select" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mux41_select[1:0]</obj_property>
+         <obj_property name="ObjectShortName">mux41_select[1:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/lead0" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">lead0[2:0]</obj_property>
+         <obj_property name="ObjectShortName">lead0[2:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffa500</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bs4_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bs4_out[15:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum_norm" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum_norm[7:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_norm[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/st4_expn" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">st4_expn[3:0]</obj_property>
+         <obj_property name="ObjectShortName">st4_expn[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/ar4_expn" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">ar4_expn[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ar4_expn[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/expn" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">expn[3:0]</obj_property>
+         <obj_property name="ObjectShortName">expn[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffa500</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/fracn" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">fracn[7:0]</obj_property>
+         <obj_property name="ObjectShortName">fracn[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/mux41_fracn_sum" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mux41_fracn_sum[7:0]</obj_property>
+         <obj_property name="ObjectShortName">mux41_fracn_sum[7:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/ar4_fracn_p1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">ar4_fracn_p1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">ar4_fracn_p1[7:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/fracn_p1_out_1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">fracn_p1_out_1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">fracn_p1_out_1[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/fracn_p1_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">fracn_p1_out[7:0]</obj_property>
+         <obj_property name="ObjectShortName">fracn_p1_out[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group146" type="group">
+      <obj_property name="label">tmp</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/uut/fracs" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">fracs[7:0]</obj_property>
+         <obj_property name="ObjectShortName">fracs[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/s4_exp" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">s4_exp[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s4_exp[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_out" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bs5_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bs5_out[31:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_out_r" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">bs5_out_r[0:31]</obj_property>
+         <obj_property name="ObjectShortName">bs5_out_r[0:31]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/fraca" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">fraca[7:0]</obj_property>
+         <obj_property name="ObjectShortName">fraca[7:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sign_bs" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">sign_bs</obj_property>
+         <obj_property name="ObjectShortName">sign_bs</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum_n" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum_n[8:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_n[8:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum_p" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum_p[8:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_p[8:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum[8:0]</obj_property>
+         <obj_property name="ObjectShortName">sum[8:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/lead0" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">lead0[2:0]</obj_property>
+         <obj_property name="ObjectShortName">lead0[2:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ffa500</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/sum_norm" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sum_norm[7:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_norm[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group95" type="group">
+      <obj_property name="label">bs5_uut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_1_uut/o_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">o_order[31:0]</obj_property>
+         <obj_property name="ObjectShortName">o_order[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_1_uut/i_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">i_order[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i_order[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_1_uut/sel_shl_shr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_shl_shr[4:0]</obj_property>
+         <obj_property name="ObjectShortName">sel_shl_shr[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_1_uut/ml_sb_order" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ml_sb_order</obj_property>
+         <obj_property name="ObjectShortName">ml_sb_order</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_1_uut/msb_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">msb_order[0:4,31:0]</obj_property>
+         <obj_property name="ObjectShortName">msb_order[0:4,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_1_uut/lsb_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">lsb_order[0:4,31:0]</obj_property>
+         <obj_property name="ObjectShortName">lsb_order[0:4,31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs5_1_uut/n" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">n[31:0]</obj_property>
+         <obj_property name="ObjectShortName">n[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group178" type="group">
+      <obj_property name="label">bs4_uut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_1_uut/o_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">o_order[15:0]</obj_property>
+         <obj_property name="ObjectShortName">o_order[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_1_uut/i_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">i_order[15:0]</obj_property>
+         <obj_property name="ObjectShortName">i_order[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_1_uut/sel_shl_shr" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">sel_shl_shr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">sel_shl_shr[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_1_uut/ml_sb_order" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ml_sb_order</obj_property>
+         <obj_property name="ObjectShortName">ml_sb_order</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_1_uut/msb_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">msb_order[0:3,15:0]</obj_property>
+         <obj_property name="ObjectShortName">msb_order[0:3,15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_1_uut/lsb_order" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">lsb_order[0:3,15:0]</obj_property>
+         <obj_property name="ObjectShortName">lsb_order[0:3,15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/bs4_1_uut/n" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">n[31:0]</obj_property>
+         <obj_property name="ObjectShortName">n[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group118" type="group">
+      <obj_property name="label">pe83_r</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_e_3_11_6/uut/pe83_r/y" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">y[2:0]</obj_property>
+         <obj_property name="ObjectShortName">y[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/pe83_r/x" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">x[7:0]</obj_property>
+         <obj_property name="ObjectShortName">x[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group144" type="group">
+      <obj_property name="label">pe42_rev</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="vbus145" type="vbus" db_ref_id="1">
+         <obj_property name="label">y</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/tb_e_3_11_6/uut/pe42_rev/y1" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">y1</obj_property>
+            <obj_property name="ObjectShortName">y1</obj_property>
+         </wvobject>
+         <wvobject fp_name="/tb_e_3_11_6/uut/pe42_rev/y0" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">y0</obj_property>
+            <obj_property name="ObjectShortName">y0</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/pe42_rev/x3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">x3</obj_property>
+         <obj_property name="ObjectShortName">x3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/pe42_rev/x2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">x2</obj_property>
+         <obj_property name="ObjectShortName">x2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/pe42_rev/x1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">x1</obj_property>
+         <obj_property name="ObjectShortName">x1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_3_11_6/uut/pe42_rev/x0" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">x0</obj_property>
+         <obj_property name="ObjectShortName">x0</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

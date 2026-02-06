@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_2_9_1_4_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_2_9_1_4" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/tb_e_2_9_1_4/gt4" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">gt4</obj_property>
+      <obj_property name="ObjectShortName">gt4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[3:0]</obj_property>
+      <obj_property name="ObjectShortName">a[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[3:0]</obj_property>
+      <obj_property name="ObjectShortName">b[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/node1/gt2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">gt2</obj_property>
+      <obj_property name="ObjectShortName">gt2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/node1/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[1:0]</obj_property>
+      <obj_property name="ObjectShortName">a[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/node1/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[1:0]</obj_property>
+      <obj_property name="ObjectShortName">b[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/node2/gt2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">gt2</obj_property>
+      <obj_property name="ObjectShortName">gt2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/node2/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[1:0]</obj_property>
+      <obj_property name="ObjectShortName">a[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/node2/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[1:0]</obj_property>
+      <obj_property name="ObjectShortName">b[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/p1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">p1</obj_property>
+      <obj_property name="ObjectShortName">p1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_1_4/uut/p2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">p2</obj_property>
+      <obj_property name="ObjectShortName">p2</obj_property>
+   </wvobject>
+</wave_config>

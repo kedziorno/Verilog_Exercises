@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_barrel_shifter_verilog_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_barrel_shifter_verilog" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/tb_barrel_shifter_verilog/ml_sb_order" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ml_sb_order</obj_property>
+      <obj_property name="ObjectShortName">ml_sb_order</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_barrel_shifter_verilog/i_order" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_order[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_order[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_barrel_shifter_verilog/sel_shl_shr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sel_shl_shr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">sel_shl_shr[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_barrel_shifter_verilog/o_order" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">o_order[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_order[7:0]</obj_property>
+   </wvobject>
+</wave_config>

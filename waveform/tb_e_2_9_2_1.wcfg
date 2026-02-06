@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_2_9_2_1_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_2_9_2_1" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/tb_e_2_9_2_1/o4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">o4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_2_1/i2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i2[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i2[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_2_1/en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_2_1/uut/o4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">o4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">o4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_2_1/uut/i2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i2[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i2[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_2_1/uut/en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_2_1/uut/i0_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">i0_n</obj_property>
+      <obj_property name="ObjectShortName">i0_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_2_9_2_1/uut/i1_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">i1_n</obj_property>
+      <obj_property name="ObjectShortName">i1_n</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_subtractor_12_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_subtractor_12" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/tb_subtractor_12/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[11:0]</obj_property>
+      <obj_property name="ObjectShortName">a[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_subtractor_12/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[11:0]</obj_property>
+      <obj_property name="ObjectShortName">b[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_subtractor_12/y" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">y[11:0]</obj_property>
+      <obj_property name="ObjectShortName">y[11:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="group10" type="group">
+      <obj_property name="label">st_2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_2/y" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">y[3:0]</obj_property>
+         <obj_property name="ObjectShortName">y[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_2/co" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">co</obj_property>
+         <obj_property name="ObjectShortName">co</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_2/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[3:0]</obj_property>
+         <obj_property name="ObjectShortName">a[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_2/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[3:0]</obj_property>
+         <obj_property name="ObjectShortName">b[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_2/ci" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ci</obj_property>
+         <obj_property name="ObjectShortName">ci</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_2/co1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">co1[3:0]</obj_property>
+         <obj_property name="ObjectShortName">co1[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group17" type="group">
+      <obj_property name="label">st_1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_1/y" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">y[3:0]</obj_property>
+         <obj_property name="ObjectShortName">y[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_1/co" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">co</obj_property>
+         <obj_property name="ObjectShortName">co</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_1/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[3:0]</obj_property>
+         <obj_property name="ObjectShortName">a[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_1/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[3:0]</obj_property>
+         <obj_property name="ObjectShortName">b[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_1/ci" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ci</obj_property>
+         <obj_property name="ObjectShortName">ci</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_1/co1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">co1[3:0]</obj_property>
+         <obj_property name="ObjectShortName">co1[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group24" type="group">
+      <obj_property name="label">st_0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_0/y" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">y[3:0]</obj_property>
+         <obj_property name="ObjectShortName">y[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_0/co" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">co</obj_property>
+         <obj_property name="ObjectShortName">co</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_0/a" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">a[3:0]</obj_property>
+         <obj_property name="ObjectShortName">a[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_0/b" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">b[3:0]</obj_property>
+         <obj_property name="ObjectShortName">b[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_0/ci" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">ci</obj_property>
+         <obj_property name="ObjectShortName">ci</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_subtractor_12/uut/st_0/co1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">co1[3:0]</obj_property>
+         <obj_property name="ObjectShortName">co1[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

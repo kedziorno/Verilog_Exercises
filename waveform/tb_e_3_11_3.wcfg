@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_3_11_3_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_3_11_3" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/tb_e_3_11_3/en_test" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">en_test</obj_property>
+      <obj_property name="ObjectShortName">en_test</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_3_11_3/in_test" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in_test[11:0]</obj_property>
+      <obj_property name="ObjectShortName">in_test[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_3_11_3/out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out[11:0]</obj_property>
+      <obj_property name="ObjectShortName">out[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_3_11_3/overflow" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">overflow</obj_property>
+      <obj_property name="ObjectShortName">overflow</obj_property>
+   </wvobject>
+</wave_config>

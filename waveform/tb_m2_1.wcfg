@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_m2_1_sch_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_m2_1_sch" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/tb_m2_1_sch/o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">o</obj_property>
+      <obj_property name="ObjectShortName">o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_m2_1_sch/d1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">d1</obj_property>
+      <obj_property name="ObjectShortName">d1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_m2_1_sch/d0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">d0</obj_property>
+      <obj_property name="ObjectShortName">d0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_m2_1_sch/s0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s0</obj_property>
+      <obj_property name="ObjectShortName">s0</obj_property>
+   </wvobject>
+</wave_config>
