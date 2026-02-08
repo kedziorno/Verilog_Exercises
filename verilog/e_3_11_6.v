@@ -9,13 +9,13 @@
 // Project Name:    Enhanced floating-point adder
 // Target Devices:  -
 // Tool versions:   -
-// Description:     -
+// Description:     Maked by combinatorial logic.
 //
 // Dependencies:    -
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: TODO - check gn, rn, sn
+// Additional Comments: TODO - check gn, rn, sn and change RCA adder
 //
 ///////////////////////////////////////////////////////////////////////////////
 module comp_gt12 (gt12, a, b);

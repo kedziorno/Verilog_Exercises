@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_4_7_1_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_4_7_1" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="5" />
+   <wvobject fp_name="/tb_e_4_7_1/uut/square_wave" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">square_wave</obj_property>
+      <obj_property name="ObjectShortName">square_wave</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/logic_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">logic_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">logic_1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/logic_0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">logic_0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">logic_0[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+</wave_config>

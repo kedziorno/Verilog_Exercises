@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_comp_eq4_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_comp_eq4" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="4" />
+   <wvobject fp_name="/tb_comp_eq4/x" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">x[3:0]</obj_property>
+      <obj_property name="ObjectShortName">x[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_comp_eq4/y" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">y[3:0]</obj_property>
+      <obj_property name="ObjectShortName">y[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_comp_eq4/eq4" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">eq4</obj_property>
+      <obj_property name="ObjectShortName">eq4</obj_property>
+   </wvobject>
+   <wvobject fp_name="group7" type="group">
+      <obj_property name="label">uut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_comp_eq4/uut/eq4" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">eq4</obj_property>
+         <obj_property name="ObjectShortName">eq4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_eq4/uut/x" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">x[3:0]</obj_property>
+         <obj_property name="ObjectShortName">x[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_comp_eq4/uut/y" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">y[3:0]</obj_property>
+         <obj_property name="ObjectShortName">y[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
