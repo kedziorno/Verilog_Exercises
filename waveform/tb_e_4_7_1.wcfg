@@ -10,18 +10,24 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="13" />
    <wvobject fp_name="/tb_e_4_7_1/uut/square_wave" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">square_wave</obj_property>
       <obj_property name="ObjectShortName">square_wave</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_1/uut/logic_1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">logic_1[3:0]</obj_property>
       <obj_property name="ObjectShortName">logic_1[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_1/uut/logic_0" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">logic_0[3:0]</obj_property>
       <obj_property name="ObjectShortName">logic_0[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_1/uut/clock" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clock</obj_property>
@@ -30,5 +36,37 @@
    <wvobject fp_name="/tb_e_4_7_1/uut/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/eq4_logic_1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">eq4_logic_1</obj_property>
+      <obj_property name="ObjectShortName">eq4_logic_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/eq4_logic_0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">eq4_logic_0</obj_property>
+      <obj_property name="ObjectShortName">eq4_logic_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/comp_cr4_eq4_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">comp_cr4_eq4_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">comp_cr4_eq4_1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/comp_cr4_eq4_0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">comp_cr4_eq4_0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">comp_cr4_eq4_0[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/mode1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mode1</obj_property>
+      <obj_property name="ObjectShortName">mode1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/mode0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mode0</obj_property>
+      <obj_property name="ObjectShortName">mode0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_1/uut/reset1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset1</obj_property>
+      <obj_property name="ObjectShortName">reset1</obj_property>
    </wvobject>
 </wave_config>

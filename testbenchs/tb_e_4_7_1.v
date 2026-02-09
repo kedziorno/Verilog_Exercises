@@ -12,7 +12,7 @@
 // Tool versions: -
 // Description:   -
 //
-// Verilog Test Fixture created by ISE for module: counter_4_com
+// Verilog Test Fixture created by ISE for module: e_4_7_1
 //
 // Dependencies:  -
 //
@@ -191,12 +191,14 @@ reset = 1;
 reset = 0;
 
 // Add stimulus here
-logic_1 = 4'd9; logic_0 = 4'd8; # (55 * 10);
-//reset = 1; #10; reset = 0;
+logic_1 = 4'd9; logic_0 = 4'd8; # (64 * 10);
 logic_1 = 4'd3; logic_0 = 4'd5; # (64 * 10);
-//reset = 1; #10; reset = 0;
 logic_1 = 4'd1; logic_0 = 4'd1; # (64 * 10);
-//reset = 1; #10; reset = 0;
+logic_1 = 4'd15; logic_0 = 4'd15; # (64 * 10);
+logic_1 = 4'd14; logic_0 = 4'd14; # (64 * 10);
+logic_1 = 4'd0; logic_0 = 4'd0; # (64 * 10);
+logic_1 = 4'd1; logic_0 = 4'd2; # (64 * 10);
+logic_1 = 4'd3; logic_0 = 4'd2; # (64 * 10);
 $finish;
 
 end

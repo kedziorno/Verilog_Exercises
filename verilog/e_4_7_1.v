@@ -15,10 +15,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: Almost works, logic_1 and logic_0 signals add TWO
-//                      cycles to output. For example, set logic_1 = 9 and
-//                      logic_0 = 8 give 10/9 cycles (19 cycles), or 5/3 give
-//                      6/4 (10 cycles).
+// Additional Comments: Combinatorial logic.
 ///////////////////////////////////////////////////////////////////////////////
 
 module counter_4_com (counter_out, counter_in);
@@ -140,7 +137,7 @@ module e_4_7_1 (square_wave, clock, reset, logic_1, logic_0);
   //       Clock Enable (posedge clk).
   //       All families.
   // Xilinx HDL Libraries Guide, version 10.1.2
-  FDCPE #(.INIT (1'b0)) FDCPE_reset_counters (
+  FDCPE_1 #(.INIT (1'b0)) FDCPE_reset_counters (
   .Q   (     reset1), // Data output
   .C   (      clock), // Clock input
   .CE  (     ~mode0), // Clock enable input
@@ -154,7 +151,7 @@ module e_4_7_1 (square_wave, clock, reset, logic_1, logic_0);
   //       Clock Enable (posedge clk).
   //       All families.
   // Xilinx HDL Libraries Guide, version 10.1.2
-  FDCE #(.INIT (1'b1)) FDCE_mode_logic_1 (
+  FDCE_1 #(.INIT (1'b1)) FDCE_mode_logic_1 (
   .Q   (      mode1), // Data output
   .C   (      clock), // Clock input
   .CE  (     enable), // Clock enable input
@@ -167,7 +164,7 @@ module e_4_7_1 (square_wave, clock, reset, logic_1, logic_0);
   //       Clock Enable (posedge clk).
   //       All families.
   // Xilinx HDL Libraries Guide, version 10.1.2
-  FDCE #(.INIT (1'b1)) FDCE_mode_logic_0 (
+  FDCE_1 #(.INIT (1'b1)) FDCE_mode_logic_0 (
   .Q   (      mode0), // Data output
   .C   (      clock), // Clock input
   .CE  (     ~mode1), // Clock enable input
@@ -180,7 +177,7 @@ module e_4_7_1 (square_wave, clock, reset, logic_1, logic_0);
   //        Clock Enable (posedge clk).
   //        All families.
   // Xilinx HDL Libraries Guide, version 10.1.2
-  FDCPE #(.INIT (1'b0)) FDCPE_square_wave_output (
+  FDCPE_1 #(.INIT (1'b0)) FDCPE_square_wave_output (
   .Q   (square_wave), // Data output
   .C   (      clock), // Clock input
   .CE  (     enable), // Clock enable input
