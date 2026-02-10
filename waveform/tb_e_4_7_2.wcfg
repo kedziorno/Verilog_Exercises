@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_4_7_2_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_4_7_2" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/tb_e_4_7_2/uut/pwm" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pwm</obj_property>
+      <obj_property name="ObjectShortName">pwm</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/w" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">w[3:0]</obj_property>
+      <obj_property name="ObjectShortName">w[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/pwm_sr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pwm_sr</obj_property>
+      <obj_property name="ObjectShortName">pwm_sr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/reset_sr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_sr</obj_property>
+      <obj_property name="ObjectShortName">reset_sr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/set_sr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">set_sr</obj_property>
+      <obj_property name="ObjectShortName">set_sr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/cntr_cr4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cntr_cr4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cntr_cr4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_2/uut/zero_w" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">zero_w</obj_property>
+      <obj_property name="ObjectShortName">zero_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="group36" type="group">
+      <obj_property name="label">sr_latch</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_e_4_7_2/uut/sr_flop_uut/r" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">r</obj_property>
+         <obj_property name="ObjectShortName">r</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_4_7_2/uut/sr_flop_uut/s" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">s</obj_property>
+         <obj_property name="ObjectShortName">s</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_4_7_2/uut/sr_flop_uut/q" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">q</obj_property>
+         <obj_property name="ObjectShortName">q</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_4_7_2/uut/sr_flop_uut/q_n" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">q_n</obj_property>
+         <obj_property name="ObjectShortName">q_n</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
