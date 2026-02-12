@@ -89,6 +89,41 @@ end
 
 endmodule
 
+module tb_counter_up_2_seq;
+
+// Inputs
+reg clock = 0;
+reg reset;
+reg enable = 1'b1;
+
+// Outputs
+wire [1:0] counter_out;
+
+always clock = #5 ~clock;
+
+// Instantiate the Unit Under Test (UUT)
+counter_up_2_seq uut (
+.counter_out (counter_out),
+.clock (clock),
+.reset (reset),
+.enable (enable)
+);
+
+initial begin
+// Initialize Inputs
+reset = 1;
+// Wait 100 ns for global reset to finish
+#102.5;
+reset = 0;
+
+// Add stimulus here
+#100;
+$finish;
+
+end
+
+endmodule
+
 module tb_counter_up_3;
 
 // Inputs
@@ -118,6 +153,41 @@ x = 3'd4; #10;
 x = 3'd5; #10;
 x = 3'd6; #10;
 x = 3'd7; #10;
+$finish;
+
+end
+
+endmodule
+
+module tb_counter_down_2_seq;
+
+// Inputs
+reg clock = 0;
+reg reset;
+reg enable = 1'b1;
+
+// Outputs
+wire [1:0] counter_out;
+
+always clock = #5 ~clock;
+
+// Instantiate the Unit Under Test (UUT)
+counter_down_2_seq uut (
+.counter_out (counter_out),
+.clock (clock),
+.reset (reset),
+.enable (enable)
+);
+
+initial begin
+// Initialize Inputs
+reset = 1;
+// Wait 100 ns for global reset to finish
+#102.5;
+reset = 0;
+
+// Add stimulus here
+#100;
 $finish;
 
 end
@@ -305,7 +375,7 @@ endmodule
 module tb_e_4_7_3;
 
 // Inputs
-reg clock;
+reg clock = 0;
 reg reset;
 reg en;
 reg cw;
@@ -324,15 +394,17 @@ e_4_7_3 uut (
 .cw(cw)
 );
 
+always clock = #5 ~clock;
+
 initial begin
 // Initialize Inputs
-clock = 0;
-reset = 0;
+reset = 1;
 en = 0;
 cw = 0;
 
 // Wait 100 ns for global reset to finish
-#100;
+#102.5;
+reset = 0;
 
 // Add stimulus here
 
