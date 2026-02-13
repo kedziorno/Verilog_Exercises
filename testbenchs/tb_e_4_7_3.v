@@ -407,7 +407,11 @@ cw = 0;
 reset = 0;
 
 // Add stimulus here
-
+en = 1; #(640*10);
+cw = 1; #(640*10);
+cw = 0; #(640*10);
+en = 0; #(640*10);
+$finish;
 end
 
 endmodule

@@ -9,7 +9,8 @@
 // Project Name:    -
 // Target Devices:  -
 // Tool versions:   -
-// Description:     Rotating square circuit / 7seg LCD x 4 anode
+// Description:     Rotating square circuit / 7seg LCD x 4 anode,
+//                  with signals en (enable) and cw (clockwise / anticlockwise)
 //
 // Dependencies:    -
 //
@@ -299,6 +300,7 @@ module e_4_7_3 (anode, segment, clock, reset, en, cw);
   wire stop_wait_counter;
   wire mux2_segment_up_down_switch;
   wire mux2_segment_up_down_transit;
+  wire mux2_segment_up_down_switch_cw;
   wire [1:0] mux4_cr_u2_anode;
   wire [1:0] mux4_cr_d2_anode, mux4_cr_d2_anode_reg;
   wire [1:0] mux4_cr_2_anode;
@@ -319,7 +321,7 @@ module e_4_7_3 (anode, segment, clock, reset, en, cw);
     .counter_out (counter_4_out_1),
     .clock       (clock          ),
     .reset       (reset          ),
-    .enable      (1'b1           )
+    .enable      (en             )
   );
 
   t_flipflop tff_stop_wait_counter (
@@ -371,13 +373,20 @@ module e_4_7_3 (anode, segment, clock, reset, en, cw);
     end
   endgenerate
 
+  m2_1 mux2_segment_up_down_switch_cw_uut (
+    .o  (mux2_segment_up_down_switch_cw),
+    .d1 (~mux2_segment_up_down_switch  ),
+    .d0 (mux2_segment_up_down_switch   ),
+    .s0 (cw                            )
+  );
+
   generate
     for (i = 0; i < 2; i = i + 1) begin : g0_mux2_cr_up_down_2
       m2_1 mux2_cr_up_down_2 (
-        .o  (         mux4_cr_2_anode[i]),
-        .d0 (    mux4_cr_d2_anode_reg[i]),
-        .d1 (        mux4_cr_u2_anode[i]),
-        .s0 (mux2_segment_up_down_switch)
+        .o  (            mux4_cr_2_anode[i]),
+        .d0 (       mux4_cr_d2_anode_reg[i]),
+        .d1 (           mux4_cr_u2_anode[i]),
+        .s0 (mux2_segment_up_down_switch_cw)
       );
     end
   endgenerate
@@ -411,10 +420,10 @@ module e_4_7_3 (anode, segment, clock, reset, en, cw);
   generate
     for (i = 0; i < 7; i = i + 1) begin : g0_mux2_segment_switch
       m2_1 mux2_segment_uut (
-        .o  (                 segment[i]),
-        .d1 (            box_down_seg[i]),
-        .d0 (              box_up_seg[i]),
-        .s0 (mux2_segment_up_down_switch)
+        .o  (                    segment[i]),
+        .d1 (               box_down_seg[i]),
+        .d0 (                 box_up_seg[i]),
+        .s0 (mux2_segment_up_down_switch_cw)
       );
     end
   endgenerate
