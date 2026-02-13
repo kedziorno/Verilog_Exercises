@@ -25,31 +25,37 @@
 module tb_e_4_7_4;
 
 // Inputs
-reg clock;
+reg clock = 0;
 reg reset;
 
 // Outputs
 wire [3:0] anode;
 wire [6:0] segment;
 
+always clock = #5 ~clock; // 100MHz
+//always clock = #10 ~clock; // 50MHz
+
 // Instantiate the Unit Under Test (UUT)
 e_4_7_4 uut (
-.anode(anode), 
-.segment(segment), 
-.clock(clock), 
+.anode(anode),
+.segment(segment),
+.clock(clock),
 .reset(reset)
 );
 
 initial begin
 // Initialize Inputs
 clock = 0;
-reset = 0;
+reset = 1;
 
 // Wait 100 ns for global reset to finish
 #100;
+reset = 0;
 
 // Add stimulus here
-
+#20971520; // 100MHz - 72Hz
+//#10485760; // 50MHz - 72Hz
+$finish;
 end
 
 endmodule
