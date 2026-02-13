@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_4_7_4_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_4_7_4" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/tb_e_4_7_4/uut/anode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/counter_3_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter_3_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">counter_3_out[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/tick_72hz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tick_72hz</obj_property>
+      <obj_property name="ObjectShortName">tick_72hz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cr4_0[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cr4_1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cr4_2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cr4_3[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cr4_4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_5" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_5[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cr4_5[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_1_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_1_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_1_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_2_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_2_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_2_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_3_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_3_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_3_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_4_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_4_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_4_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_5_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_5_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_5_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cntr4_24" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cntr4_24[23:0]</obj_property>
+      <obj_property name="ObjectShortName">cntr4_24[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/mux3_a_anode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mux3_a_anode[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mux3_a_anode[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/hz72_100" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">hz72_100[23:0]</obj_property>
+      <obj_property name="ObjectShortName">hz72_100[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/hz72_50" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">hz72_50[23:0]</obj_property>
+      <obj_property name="ObjectShortName">hz72_50[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/anode_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/anode_2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_1_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_1_a[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_1_a[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_1_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_1_b[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_1_b[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_2_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_2_a[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_2_a[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_2_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_2_b[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_2_b[6:0]</obj_property>
+   </wvobject>
+</wave_config>
