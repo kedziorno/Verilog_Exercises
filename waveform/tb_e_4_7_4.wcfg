@@ -10,7 +10,18 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="27" />
+   <WVObjectSize size="28" />
+   <wave_markers>
+      <marker time="102500000" label="" />
+      <marker time="41667170200000" label="" />
+      <marker time="83334290200000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr_u2_anode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr_u2_anode[1:0]</obj_property>
+      <obj_property name="ObjectShortName">cr_u2_anode[1:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_e_4_7_4/uut/anode" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">anode[3:0]</obj_property>
       <obj_property name="ObjectShortName">anode[3:0]</obj_property>
@@ -18,6 +29,12 @@
    <wvobject fp_name="/tb_e_4_7_4/uut/segment" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">segment[6:0]</obj_property>
       <obj_property name="ObjectShortName">segment[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr3_segment" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr3_segment[1:0]</obj_property>
+      <obj_property name="ObjectShortName">cr3_segment[1:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffa500</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_4/uut/clock" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clock</obj_property>
@@ -27,13 +44,44 @@
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/counter_3_out" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">counter_3_out[1:0]</obj_property>
-      <obj_property name="ObjectShortName">counter_3_out[1:0]</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cntr4_20" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cntr4_20[19:0]</obj_property>
+      <obj_property name="ObjectShortName">cntr4_20[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#00ffff</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_4/uut/tick_72hz" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">tick_72hz</obj_property>
       <obj_property name="ObjectShortName">tick_72hz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_1_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_1_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_1_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_2_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_2_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_2_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_3_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_3_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_3_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_4_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4_4_en</obj_property>
+      <obj_property name="ObjectShortName">cr4_4_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/tick_72hz_reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">tick_72hz_reset</obj_property>
+      <obj_property name="ObjectShortName">tick_72hz_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/cr_u2_anode_11" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cr_u2_anode_11</obj_property>
+      <obj_property name="ObjectShortName">cr_u2_anode_11</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_4/uut/anode_array" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_array[0:3,3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_array[0:3,3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_4/uut/cr4_0" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">cr4_0[3:0]</obj_property>
@@ -55,68 +103,37 @@
       <obj_property name="ElementShortName">cr4_4[3:0]</obj_property>
       <obj_property name="ObjectShortName">cr4_4[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_5" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">cr4_5[3:0]</obj_property>
-      <obj_property name="ObjectShortName">cr4_5[3:0]</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_a[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_a[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_1_en" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">cr4_1_en</obj_property>
-      <obj_property name="ObjectShortName">cr4_1_en</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_b[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_b[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_2_en" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">cr4_2_en</obj_property>
-      <obj_property name="ObjectShortName">cr4_2_en</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_c" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_c[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_c[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_3_en" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">cr4_3_en</obj_property>
-      <obj_property name="ObjectShortName">cr4_3_en</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/mux3_a_segment" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mux3_a_segment[6:0]</obj_property>
+      <obj_property name="ObjectShortName">mux3_a_segment[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_4_en" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">cr4_4_en</obj_property>
-      <obj_property name="ObjectShortName">cr4_4_en</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_0[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_0[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/cr4_5_en" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">cr4_5_en</obj_property>
-      <obj_property name="ObjectShortName">cr4_5_en</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_l" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_l[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_l[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/cntr4_24" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">cntr4_24[23:0]</obj_property>
-      <obj_property name="ObjectShortName">cntr4_24[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/mux3_a_anode" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">mux3_a_anode[3:0]</obj_property>
-      <obj_property name="ObjectShortName">mux3_a_anode[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/hz72_100" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">hz72_100[23:0]</obj_property>
-      <obj_property name="ObjectShortName">hz72_100[23:0]</obj_property>
+   <wvobject fp_name="/tb_e_4_7_4/uut/segment_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_r[6:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_r[6:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_4/uut/hz72_50" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">hz72_50[23:0]</obj_property>
-      <obj_property name="ObjectShortName">hz72_50[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/anode_1" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">anode_1[3:0]</obj_property>
-      <obj_property name="ObjectShortName">anode_1[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/anode_2" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">anode_2[3:0]</obj_property>
-      <obj_property name="ObjectShortName">anode_2[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/segment_1_a" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">segment_1_a[6:0]</obj_property>
-      <obj_property name="ObjectShortName">segment_1_a[6:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/segment_1_b" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">segment_1_b[6:0]</obj_property>
-      <obj_property name="ObjectShortName">segment_1_b[6:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/segment_2_a" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">segment_2_a[6:0]</obj_property>
-      <obj_property name="ObjectShortName">segment_2_a[6:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_e_4_7_4/uut/segment_2_b" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">segment_2_b[6:0]</obj_property>
-      <obj_property name="ObjectShortName">segment_2_b[6:0]</obj_property>
+      <obj_property name="ElementShortName">hz72_50[19:0]</obj_property>
+      <obj_property name="ObjectShortName">hz72_50[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>

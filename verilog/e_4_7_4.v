@@ -9,7 +9,7 @@
 // Project Name:    -
 // Target Devices:  -
 // Tool versions:   -
-// Description:     Heartbeat circuit
+// Description:     Heartbeat circuit at 72Hz (50MHz main clock)
 //
 // Dependencies:    -
 //
@@ -18,20 +18,15 @@
 // Additional Comments: -
 //
 ///////////////////////////////////////////////////////////////////////////////
-module comp_eq24 (eq24, x, y);
-  output eq24;
+module comp_eq20 (eq20, x, y);
+  output eq20;
   input x, y;
 
-  wire eq24;
-  wire [23:0] x, y;
+  wire eq20;
+  wire [19:0] x, y;
 
-  wire eq4_6, eq4_5, eq4_4, eq4_3, eq4_2, eq4_1;
+  wire eq4_5, eq4_4, eq4_3, eq4_2, eq4_1;
 
-  comp_eq4 comp6_uut (
-    .eq4 (eq4_6   ),
-    .x   (x[23:20]),
-    .y   (y[23:20])
-  );
   comp_eq4 comp5_uut (
     .eq4 (eq4_5   ),
     .x   (x[19:16]),
@@ -58,7 +53,7 @@ module comp_eq24 (eq24, x, y);
     .y   (y[3:0])
   );
 
-  assign eq24 = eq4_6 & eq4_5 & eq4_4 & eq4_3 & eq4_2 & eq4_1;
+  assign eq20 = eq4_5 & eq4_4 & eq4_3 & eq4_2 & eq4_1;
 endmodule
 
 module counter_3_up_com (y, x);
@@ -108,141 +103,212 @@ module counter_3_up_seq (counter_out, clock, reset, enable);
   always @(*) counter_out = counter_3_in;
 endmodule
 
+module mux41_segment (y, x0, x1, x2, x3, s);
+  output y;
+  input x0, x1, x2, x3, s;
+
+  wire [6:0] y;
+  wire [6:0] x0, x1, x2, x3;
+  wire [1:0] s;
+
+  wire [6:0] x [0:3];
+  assign x[0] = x0;
+  assign x[1] = x1;
+  assign x[2] = x2;
+  assign x[3] = x3;
+  genvar i;
+
+  generate
+    for (i = 0; i < 7; i = i + 1) begin : g0_mux41_7
+      mux41 mux41_7_uut (
+        .y  (y[i]),
+        .s1 (s[0]),
+        .s0 (s[1]),
+        .i3 (x[3][i]),
+        .i2 (x[2][i]),
+        .i1 (x[1][i]),
+        .i0 (x[0][i])
+      );
+    end
+  endgenerate
+endmodule
+
 module e_4_7_4 (anode, segment, clock, reset);
-output anode, segment;
-input clock, reset;
+  output anode, segment;
+  input clock, reset;
 
-wire [3:0] anode;
-wire [6:0] segment;
-wire clock, reset;
+  wire [3:0] anode;
+  wire [6:0] segment;
+  wire clock, reset;
 
-genvar i;
+  genvar i;
 
-localparam hz72_100 = 24'b000101010011000101011001;
-localparam hz72_50 = 24'b000010101001100010101100;
+  localparam hz72_100 = 20'b01010100110001010110;
+  localparam hz72_50 = 20'b00101010011000101011;
 
-localparam anode_1 = 4'b1001;
-localparam anode_2 = 4'b0110;
+  parameter [3:0]
+  anode_0 = 4'b0111,
+  anode_1 = 4'b1011,
+  anode_2 = 4'b1101,
+  anode_3 = 4'b1110;
 
-localparam segment_1_a = 7'b0110000;
-localparam segment_1_b = 7'b0000110;
+  wire cr_u2_anode_11;
+  wire tick_72hz, tick_72hz_reset;
+  wire cr4_1_en, cr4_2_en, cr4_3_en, cr4_4_en;
+  wire [1:0] cr3_segment;
+  wire [1:0] cr_u2_anode;
+  wire [3:0] anode_array [0:3];
+  wire [3:0] cr4_0, cr4_1, cr4_2, cr4_3, cr4_4;
+  wire [6:0] segment_a;
+  wire [6:0] segment_b;
+  wire [6:0] segment_c;
+  wire [6:0] mux3_a_segment;
+  wire [6:0] segment_0, segment_l, segment_r;
+  wire [19:0] cntr4_20;
 
-localparam segment_2_a = 7'b0000110;
-localparam segment_2_b = 7'b0110000;
+  assign segment_l = 7'b0110000;
+  assign segment_r = 7'b0000110;
+  assign anode_array[0] = anode_0;
+  assign anode_array[1] = anode_1;
+  assign anode_array[2] = anode_2;
+  assign anode_array[3] = anode_3;
+  assign cr4_1_en = cr4_0[3] & cr4_0[2] & cr4_0[1] & cr4_0[0];
+  assign cr4_2_en = (cr4_1[3] & cr4_1[2] & cr4_1[1] & cr4_1[0]) & cr4_1_en;
+  assign cr4_3_en = (cr4_2[3] & cr4_2[2] & cr4_2[1] & cr4_2[0]) & cr4_2_en;
+  assign cr4_4_en = (cr4_3[3] & cr4_3[2] & cr4_3[1] & cr4_3[0]) & cr4_3_en;
+  assign cntr4_20 = {cr4_4, cr4_3, cr4_2, cr4_1, cr4_0};
+  assign cr_u2_anode_11 = cr_u2_anode[1] & cr_u2_anode[0];
 
-wire tick_72hz;
-wire cr4_1_en, cr4_2_en, cr4_3_en, cr4_4_en, cr4_5_en;
-wire [3:0] cr4_0, cr4_1, cr4_2, cr4_3, cr4_4, cr4_5;
-wire [1:0] counter_3_out;
-wire [3:0] mux3_a_anode;
-wire [6:0] mux3_a_segment;
-wire [23:0] cntr4_24;
+  generate
+    for (i = 0; i < 7; i = i + 1) begin : g0_gnd_segment
+      GND gnd_segment_uut (.G (segment_0[i]));
+    end
+  endgenerate
 
-assign cr4_1_en = cr4_0[3] & cr4_0[2] & cr4_0[1] & cr4_0[0];
-assign cr4_2_en = (cr4_1[3] & cr4_1[2] & cr4_1[1] & cr4_1[0]) & cr4_1_en;
-assign cr4_3_en = (cr4_2[3] & cr4_2[2] & cr4_2[1] & cr4_2[0]) & cr4_2_en;
-assign cr4_4_en = (cr4_3[3] & cr4_3[2] & cr4_3[1] & cr4_3[0]) & cr4_3_en;
-assign cr4_5_en = (cr4_4[3] & cr4_4[2] & cr4_4[1] & cr4_4[0]) & cr4_4_en;
-assign cntr4_24 = {cr4_5, cr4_4, cr4_3, cr4_2, cr4_1, cr4_0};
+  counter_4_seq cr4_0_uut (
+    .counter_out (cr4_0                  ),
+    .clock       (clock                  ),
+    .reset       (reset | tick_72hz_reset),
+    .enable      (1'b1                   )
+  );
 
-counter_4_seq cr4_0_uut (
-  .counter_out (cr4_0),
-  .clock       (clock),
-  .reset       (reset),
-  .enable      (1'b1 )
-);
+  counter_4_seq cr4_1_uut (
+    .counter_out (cr4_1                  ),
+    .clock       (clock                  ),
+    .reset       (reset | tick_72hz_reset),
+    .enable      (cr4_1_en               )
+  );
 
-counter_4_seq cr4_1_uut (
-  .counter_out (cr4_1   ),
-  .clock       (clock   ),
-  .reset       (reset   ),
-  .enable      (cr4_1_en)
-);
+  counter_4_seq cr4_2_uut (
+    .counter_out (cr4_2                  ),
+    .clock       (clock                  ),
+    .reset       (reset | tick_72hz_reset),
+    .enable      (cr4_2_en               )
+  );
 
-counter_4_seq cr4_2_uut (
-  .counter_out (cr4_2   ),
-  .clock       (clock   ),
-  .reset       (reset   ),
-  .enable      (cr4_2_en)
-);
+  counter_4_seq cr4_3_uut (
+    .counter_out (cr4_3                  ),
+    .clock       (clock                  ),
+    .reset       (reset | tick_72hz_reset),
+    .enable      (cr4_3_en               )
+  );
 
-counter_4_seq cr4_3_uut (
-  .counter_out (cr4_3   ),
-  .clock       (clock   ),
-  .reset       (reset   ),
-  .enable      (cr4_3_en)
-);
+  counter_4_seq cr4_4_uut (
+    .counter_out (cr4_4                  ),
+    .clock       (clock                  ),
+    .reset       (reset | tick_72hz_reset),
+    .enable      (cr4_4_en               )
+  );
 
-counter_4_seq cr4_4_uut (
-  .counter_out (cr4_4   ),
-  .clock       (clock   ),
-  .reset       (reset   ),
-  .enable      (cr4_4_en)
-);
+  comp_eq20 comp_eq20_tick_72hz_uut (
+    .eq20 (tick_72hz),
+    .x    (cntr4_20 ),
+    .y    (hz72_50  )
+  );
 
-counter_4_seq cr4_5_uut (
-  .counter_out (cr4_5   ),
-  .clock       (clock   ),
-  .reset       (reset   ),
-  .enable      (cr4_5_en)
-);
+  // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
+  //       Clock Enable (posedge clk).
+  //       All families.
+  // Xilinx HDL Libraries Guide, version 10.1.2
+  FDCE #(.INIT(1'b0)) FDCE_tick_72hz_reset (
+  .Q   (tick_72hz_reset), // Data output
+  .C   (clock          ), // Clock input
+  .CE  (1'b1           ), // Clock enable input
+  .CLR (reset          ), // Asynchronous clear input
+  .D   (tick_72hz      )  // Data input
+  );
+  // End of FDCE_inst instantiation
 
-comp_eq24 comp_eq24_tick_72hz_uut (
-  .eq24 (tick_72hz),
-  .x    (cntr4_24 ),
-  .y    (hz72_100 )
-);
+  counter_3_up_seq cr3_segment_uut (
+    .counter_out (cr3_segment   ),
+    .clock       (tick_72hz     ),
+    .reset       (reset         ),
+    .enable      (cr_u2_anode_11)
+  );
 
-counter_3_up_seq uut (
-  .counter_out (counter_3_out),
-  .clock       (clock        ),
-  //.clock       (tick_72hz    ),
-  .reset       (reset        ),
-  .enable      (1'b1         )
-);
+  counter_up_2_seq cr_u2_anode_uut (
+    .counter_out (cr_u2_anode),
+    .clock       (tick_72hz  ),
+    .reset       (reset      ),
+    .enable      (1'b1       )
+  );
 
-generate
-  for (i = 0; i < 4; i = i + 1) begin : g0_mux3_a_anode
-    m2_1 mux3_a_anode_uut (
-      .o  ( mux3_a_anode[i]),
-      .d1 (      anode_1[i]),
-      .d0 (      anode_1[i]),
-      .s0 (counter_3_out[0])
-    );
-  end
-endgenerate
+  generate
+    for (i = 0; i < 4; i = i + 1) begin : g0_mux4_anode
+      mux_41 mux4_anode_uut (
+        .y (      anode[i]),
+        .x (anode_array[i]),
+        .s (   cr_u2_anode)
+      );
+    end
+  endgenerate
 
-generate
-  for (i = 0; i < 4; i = i + 1) begin : g0_mux3_b_anode
-    m2_1 mux3_b_anode_uut (
-      .o  (        anode[i]),
-      .d1 (      anode_2[i]),
-      .d0 ( mux3_a_anode[i]),
-      .s0 (counter_3_out[1])
-    );
-  end
-endgenerate
+  mux41_segment mux4_segment_a_uut (
+    .y  (segment_a  ),
+    .x0 (segment_0  ),
+    .x1 (segment_l  ),
+    .x2 (segment_r  ),
+    .x3 (segment_0  ),
+    .s  (cr_u2_anode)
+  );
 
-generate
-  for (i = 0; i < 7; i = i + 1) begin : g0_mux3_a_segment
-    m2_1 mux3_a_segment_uut (
-      .o  (mux3_a_segment[i]),
-      .d1 (   segment_1_b[i]),
-      .d0 (   segment_1_a[i]),
-      .s0 ( counter_3_out[0])
-    );
-  end
-endgenerate
+  mux41_segment mux4_segment_b_uut (
+    .y  (segment_b  ),
+    .x0 (segment_0  ),
+    .x1 (segment_r  ),
+    .x2 (segment_l  ),
+    .x3 (segment_0  ),
+    .s  (cr_u2_anode)
+  );
 
-generate
-  for (i = 0; i < 7; i = i + 1) begin : g0_mux3_b_segment
-    m2_1 mux3_b_segment_uut (
-      .o  (       segment[i]),
-      .d1 (   segment_2_a[i]),
-      .d0 (mux3_a_segment[i]),
-      .s0 ( counter_3_out[1])
-    );
-  end
-endgenerate
+  mux41_segment mux4_segment_c_uut (
+    .y  (segment_c  ),
+    .x0 (segment_r  ),
+    .x1 (segment_0  ),
+    .x2 (segment_0  ),
+    .x3 (segment_l  ),
+    .s  (cr_u2_anode)
+  );
 
+  generate
+    for (i = 0; i < 7; i = i + 1) begin : g0_mux3_a_segment
+      m2_1 mux3_a_segment_uut (
+        .o  (mux3_a_segment[i]),
+        .d1 (     segment_b[i]),
+        .d0 (     segment_a[i]),
+        .s0 (   cr3_segment[0])
+      );
+    end
+  endgenerate
+
+  generate
+    for (i = 0; i < 7; i = i + 1) begin : g0_mux3_b_segment
+      m2_1 mux3_b_segment_uut (
+        .o  (       segment[i]),
+        .d1 (     segment_c[i]),
+        .d0 (mux3_a_segment[i]),
+        .s0 (   cr3_segment[1])
+      );
+    end
+  endgenerate
 endmodule
