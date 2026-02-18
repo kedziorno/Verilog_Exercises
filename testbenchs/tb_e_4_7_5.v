@@ -62,7 +62,7 @@ endmodule
 module tb_e_4_7_5;
 
 // Inputs
-reg clock;
+reg clock = 0;
 reg reset;
 reg en;
 reg dir;
@@ -70,6 +70,8 @@ reg dir;
 // Outputs
 wire [6:0] segment;
 wire [3:0] anode;
+
+always clock = #5 ~clock;
 
 // Instantiate the Unit Under Test (UUT)
 e_4_7_5 uut (
@@ -83,15 +85,18 @@ e_4_7_5 uut (
 
 initial begin
 // Initialize Inputs
-clock = 0;
-reset = 0;
+reset = 1;
 en = 0;
 dir = 0;
 
 // Wait 100 ns for global reset to finish
-#100;
+#107.5;
+reset = 0;
 
 // Add stimulus here
+en = 1; #10;
+#110;
+$finish;
 
 end
 
