@@ -10,18 +10,46 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="22" />
+   <wave_markers>
+      <marker time="107500000" label="" />
+      <marker time="425200000" label="" />
+      <marker time="505200000" label="" />
+      <marker time="545200000" label="" />
+   </wave_markers>
    <wvobject fp_name="/tb_e_4_7_5/uut/segment" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">segment[6:0]</obj_property>
       <obj_property name="ObjectShortName">segment[6:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffa500</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/segment_out_chain" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_out_chain[15:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_out_chain[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_5/uut/anode" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">anode[3:0]</obj_property>
       <obj_property name="ObjectShortName">anode[3:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffa500</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/cr_u2_anode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr_u2_anode[1:0]</obj_property>
+      <obj_property name="ObjectShortName">cr_u2_anode[1:0]</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_5/uut/clock" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/clock_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock_n</obj_property>
+      <obj_property name="ObjectShortName">clock_n</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_5/uut/reset" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">reset</obj_property>
@@ -48,8 +76,9 @@
       <obj_property name="ObjectShortName">cr4_reset_fdce</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_5/uut/ff_chain" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ff_chain[9:0]</obj_property>
-      <obj_property name="ObjectShortName">ff_chain[9:0]</obj_property>
+      <obj_property name="ElementShortName">ff_chain[10:1]</obj_property>
+      <obj_property name="ObjectShortName">ff_chain[10:1]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_5/uut/cr4_ff_chain" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">cr4_ff_chain[3:0]</obj_property>
@@ -58,16 +87,36 @@
    <wvobject fp_name="/tb_e_4_7_5/uut/mux2_chain" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">mux2_chain[35:0]</obj_property>
       <obj_property name="ObjectShortName">mux2_chain[35:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_5/uut/mux2_vars" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">mux2_vars[0:9,3:0]</obj_property>
-      <obj_property name="ObjectShortName">mux2_vars[0:9,3:0]</obj_property>
+      <obj_property name="ElementShortName">mux2_vars[0:10,3:0]</obj_property>
+      <obj_property name="ObjectShortName">mux2_vars[0:10,3:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_5/uut/mux2_chain_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">mux2_chain_out[3:0]</obj_property>
       <obj_property name="ObjectShortName">mux2_chain_out[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <obj_property name="CustomSignalColor">#00ff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/anode_0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_0[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_0[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/anode_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/anode_2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/anode_3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_3[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_5/uut/anode_array" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_array[0:3,3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_array[0:3,3:0]</obj_property>
    </wvobject>
 </wave_config>

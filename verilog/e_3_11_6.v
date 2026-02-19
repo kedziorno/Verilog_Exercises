@@ -15,7 +15,8 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: TODO - check gn, rn, sn and change RCA adder
+// Additional Comments: Logic experssions. TODO - check gn, rn, sn and
+//                      change RCA adder.
 //
 ///////////////////////////////////////////////////////////////////////////////
 module comp_gt12 (gt12, a, b);

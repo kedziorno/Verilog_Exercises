@@ -15,7 +15,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: Pure CL / LE (only gates).
+// Additional Comments: Logic experssions.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module bcd_incrementer_1_logic_expression (out, overflow, in, en);

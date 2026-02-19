@@ -17,7 +17,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: -
+// Additional Comments: Almost all logic expressions.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module barrel_shifter_verilog

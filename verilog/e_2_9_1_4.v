@@ -15,7 +15,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: Pure CL / LE (only gates).
+// Additional Comments: Logic experssions.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module e_2_9_1_4 (gt4, a, b);

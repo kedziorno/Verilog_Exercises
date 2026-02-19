@@ -15,7 +15,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: -
+// Additional Comments: Logic experssions.
 //
 ///////////////////////////////////////////////////////////////////////////////
 module comp_eq20 (eq20, x, y);

@@ -16,7 +16,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: -
+// Additional Comments: Logic experssions.
 //
 ///////////////////////////////////////////////////////////////////////////////
 module tick_4 (tick, clock, reset);

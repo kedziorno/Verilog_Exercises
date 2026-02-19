@@ -15,7 +15,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: Combinatorial logic.
+// Additional Comments: Logic experssions.
 ///////////////////////////////////////////////////////////////////////////////
 
 module counter_4_com (counter_out, counter_in);

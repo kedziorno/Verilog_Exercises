@@ -17,7 +17,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: -
+// Additional Comments: Almost all logic experssions.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module e_3_11_2(first, second, req);

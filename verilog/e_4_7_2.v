@@ -15,10 +15,10 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: PWM works from 0, but to 2^N-1 variables
-//                      eg. with w=1111 filling have 150ns (not 160) at 10ns
-//                      clock period (100 MHz), so logical step is turn off PWM
-//                      to have all 100% filling.
+// Additional Comments: Logic experssions. PWM works from 0, but to 2^N-1
+//                      variables eg. with w=1111 filling have 150ns (not 160)
+//                      at 10ns clock period (100 MHz), so logical step is
+//                      turn off PWM to have all 100% filling.
 //
 ///////////////////////////////////////////////////////////////////////////////
 module e_4_7_2 (pwm, clock, reset, w);
