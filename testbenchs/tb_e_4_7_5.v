@@ -94,8 +94,10 @@ dir = 0;
 reset = 0;
 
 // Add stimulus here
-en = 1; #10;
-#110;
+en = 1; dir = 1; #670;
+en = 1; dir = 0; #670;
+en = 0; dir = 1; #670;
+en = 0; dir = 0; #670;
 $finish;
 
 end

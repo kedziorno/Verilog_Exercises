@@ -10,12 +10,13 @@
 // Target Devices:  -
 // Tool versions:   -
 // Description:     Rotating LED banner circuit (0/0x3f appear is twice)
+//                  with en and dir signals.
 //
 // Dependencies:    -
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: Logic experssions. TODO: implement dir
+// Additional Comments: Logic experssions.
 //
 ///////////////////////////////////////////////////////////////////////////////
 module fdce_4 (q, c, ce, clr, d);
@@ -127,12 +128,12 @@ module e_4_7_5 (segment, anode, clock, reset, en, dir);
   wire [1:0] cr_u2_anode;
   wire [1:0] cr_u2_clock_divider_4;
   wire [3:0] cr4_ff_chain;
-  wire [3:0] mux2_chain_out;
+  wire [3:0] mux2_chain_out, mux2_chain_out_dir1, mux2_chain_out_dir2;
   wire [3:0] anode_array [0:3];
   wire [3:0] mux2_vars [0:10];
   wire [6:0] segment_to_decode;
   wire [10:1] ff_chain;
-  wire [4*9-1:0] mux2_chain;
+  wire [4*9-1:0] mux2_chain_dir1, mux2_chain_dir2;
   wire [4*4-1:0] segment_out_chain;
 
   assign cr4_reset = // reset when 10 tick
@@ -153,7 +154,7 @@ module e_4_7_5 (segment, anode, clock, reset, en, dir);
   assign mux2_vars[7] = 4'b0111;
   assign mux2_vars[8] = 4'b1000;
   assign mux2_vars[9] = 4'b1001;
-  assign mux2_vars[10] = 4'b1010; // 10 redundant
+  assign mux2_vars[10] = 4'b1010; // 10 redundant - XST Warning
   assign anode_array[0] = anode_0;
   assign anode_array[1] = anode_1;
   assign anode_array[2] = anode_2;
@@ -169,33 +170,69 @@ module e_4_7_5 (segment, anode, clock, reset, en, dir);
   );
 
   generate
-    for (i = 1; i < 11; i = i + 1) begin : g1_mux2_chain
-      if (i == 1) begin : g1_mux2_1
+    for (i = 1; i < 11; i = i + 1) begin : g1_mux2_chain_dir1
+      if (i == 1) begin : g1_mux2_1_dir1
         m21_4 g1_m21_1 (
-          .o  (mux2_chain [(i-1)*4+:4]),
-          .d1 (mux2_vars  [1]         ),
-          .d0 (mux2_vars  [0]         ),
-          .s0 (ff_chain   [i]         )
+          .o  (mux2_chain_dir1 [(i-1)*4+:4]),
+          .d1 (mux2_vars       [1]         ),
+          .d0 (mux2_vars       [0]         ),
+          .s0 (ff_chain        [i]         )
         );
       end
-      else if (i == 10) begin : g1_mux2_10
+      else if (i == 10) begin : g1_mux2_10_dir1
         m21_4 g1_m21_10 (
-          .o  (mux2_chain_out         ),
-          .d1 (mux2_vars  [0]         ),
-          .d0 (mux2_chain [(i-2)*4+:4]),
-          .s0 (ff_chain   [i]         )
+          .o  (mux2_chain_out_dir1         ),
+          .d1 (mux2_vars       [0]         ),
+          .d0 (mux2_chain_dir1 [(i-2)*4+:4]),
+          .s0 (ff_chain        [i]         )
         );
       end
-      else if (i > 1 && i < 10) begin : g1_mux2_2_9
+      else if (i > 1 && i < 10) begin : g1_mux2_2_9_dir1
         m21_4 g1_m21_rest (
-          .o  (mux2_chain [(i-1)*4+:4]),
-          .d1 (mux2_vars  [i]         ),
-          .d0 (mux2_chain [(i-2)*4+:4]),
-          .s0 (ff_chain   [i]         )
+          .o  (mux2_chain_dir1 [(i-1)*4+:4]),
+          .d1 (mux2_vars       [i]         ),
+          .d0 (mux2_chain_dir1 [(i-2)*4+:4]),
+          .s0 (ff_chain        [i]         )
         );
       end
     end
   endgenerate
+
+  generate
+    for (i = 0; i < 11; i = i + 1) begin : g3_mux2_chain_dir2
+      if (i == 1) begin : g3_mux2_10_dir2
+        m21_4 g1_m21_1 (
+          .o  (mux2_chain_dir2 [(i-1)*4+:4]),
+          .d1 (mux2_vars       [9]         ),
+          .d0 (mux2_vars       [0]         ),
+          .s0 (ff_chain        [i]         )
+        );
+      end
+      else if (i == 10) begin : g3_mux2_10_dir2
+        m21_4 g1_m21_10 (
+          .o  (mux2_chain_out_dir2         ),
+          .d1 (mux2_vars       [0]         ),
+          .d0 (mux2_chain_dir2 [(i-2)*4+:4]),
+          .s0 (ff_chain        [i]         )
+        );
+      end
+      else if (i > 1 && i < 10) begin : g3_mux2_2_9_dir2
+        m21_4 g1_m21_rest (
+          .o  (mux2_chain_dir2 [(i-1)*4+:4]),
+          .d1 (mux2_vars       [10-i]      ),
+          .d0 (mux2_chain_dir2 [(i-2)*4+:4]),
+          .s0 (ff_chain        [i]         )
+        );
+      end
+    end
+  endgenerate
+
+  m21_4 mux2_chain_out_uut (
+    .o  (mux2_chain_out     ),
+    .d1 (mux2_chain_out_dir2),
+    .d0 (mux2_chain_out_dir1),
+    .s0 (dir                )
+  );
 
   counter_4_seq cr4_ff_chain_uut (
     .counter_out (cr4_ff_chain          ),
