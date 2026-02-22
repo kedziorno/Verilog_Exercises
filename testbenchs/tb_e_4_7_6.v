@@ -46,7 +46,8 @@ e_4_7_6 uut (
 .enable(enable)
 );
 
-always clock = #50000000.0 ~clock; // 100 ms sub-seconds PAR
+//always clock = #50000000.0 ~clock; // 100 ms sub-seconds PAR
+always clock = #5 ~clock;
 
 initial begin
 // Initialize Inputs
@@ -60,7 +61,10 @@ enable = 0;
 reset = 0;
 
 // Add stimulus here
-enable = 1; #3000;
+enable = 1; up = 1; #90;
+enable = 1; up = 0; #100;
+enable = 1; up = 1; #90;
+enable = 1; up = 0; #100;
 $finish;
 
 end
