@@ -10,11 +10,41 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="20" />
+   <WVObjectSize size="26" />
    <wave_markers>
       <marker time="240105501000" label="" />
       <marker time="480105501000" label="" />
       <marker time="720105501000" label="" />
+      <marker time="8160109500000" label="" />
+      <marker time="7920109500000" label="" />
+      <marker time="7680109500000" label="" />
+      <marker time="7440108500000" label="" />
+      <marker time="6960109500000" label="" />
+      <marker time="6720109500000" label="" />
+      <marker time="6480109500000" label="" />
+      <marker time="6240109500000" label="" />
+      <marker time="6000109500000" label="" />
+      <marker time="5760109500000" label="" />
+      <marker time="5520109500000" label="" />
+      <marker time="5280109500000" label="" />
+      <marker time="5040109500000" label="" />
+      <marker time="4800109500000" label="" />
+      <marker time="4560108500000" label="" />
+      <marker time="4320108500000" label="" />
+      <marker time="4080108500000" label="" />
+      <marker time="3840108500000" label="" />
+      <marker time="3600109500000" label="" />
+      <marker time="3360109500000" label="" />
+      <marker time="3120109500000" label="" />
+      <marker time="2880109500000" label="" />
+      <marker time="2640109500000" label="" />
+      <marker time="2400109500000" label="" />
+      <marker time="2160109500000" label="" />
+      <marker time="1920109500000" label="" />
+      <marker time="1680108500000" label="" />
+      <marker time="1440109500000" label="" />
+      <marker time="1200109500000" label="" />
+      <marker time="960105200000" label="" />
    </wave_markers>
    <wvobject fp_name="/tb_e_4_7_6/uut/anode" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">anode[3:0]</obj_property>
@@ -31,13 +61,13 @@
       <obj_property name="CustomSignalColor">#ffffff</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_6/uut/segment_up" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">segment_up[6:0]</obj_property>
-      <obj_property name="ObjectShortName">segment_up[6:0]</obj_property>
+      <obj_property name="ElementShortName">segment_up[3:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_up[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_6/uut/segment_down" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">segment_down[6:0]</obj_property>
-      <obj_property name="ObjectShortName">segment_down[6:0]</obj_property>
+      <obj_property name="ElementShortName">segment_down[3:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_down[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_6/uut/clock" type="logic" db_ref_id="1">
@@ -106,7 +136,7 @@
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="CustomSignalColor">#ffffff</obj_property>
+      <obj_property name="CustomSignalColor">#ffa500</obj_property>
       <wvobject fp_name="/tb_e_4_7_6/uut/cr4_9_0_min_down" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">cr4_9_0_min_down[3:0]</obj_property>
          <obj_property name="ObjectShortName">cr4_9_0_min_down[3:0]</obj_property>
@@ -132,6 +162,41 @@
          <obj_property name="CustomSignalColor">#ffff00</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject fp_name="vbus47" type="vbus" db_ref_id="1">
+      <obj_property name="label">load_u2d</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_e_4_7_6/uut/cr4_0_9_min_load" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">cr4_0_9_min_load[3:0]</obj_property>
+         <obj_property name="ObjectShortName">cr4_0_9_min_load[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_4_7_6/uut/cr4_0_5_sec_b_load_1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">cr4_0_5_sec_b_load_1[3:0]</obj_property>
+         <obj_property name="ObjectShortName">cr4_0_5_sec_b_load_1[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_4_7_6/uut/cr4_0_9_sec_a_load" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">cr4_0_9_sec_a_load[3:0]</obj_property>
+         <obj_property name="ObjectShortName">cr4_0_9_sec_a_load[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_e_4_7_6/uut/cr4_0_9_sub_sec_load" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">cr4_0_9_sub_sec_load[3:0]</obj_property>
+         <obj_property name="ObjectShortName">cr4_0_9_sub_sec_load[3:0]</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_6/uut/ff_up" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ff_up[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ff_up[3:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_e_4_7_6/uut/tick_0_9_sub_sec" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">tick_0_9_sub_sec</obj_property>
       <obj_property name="ObjectShortName">tick_0_9_sub_sec</obj_property>
@@ -151,6 +216,8 @@
    <wvobject fp_name="/tb_e_4_7_6/uut/tick_9_0_sub_sec_down" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">tick_9_0_sub_sec_down</obj_property>
       <obj_property name="ObjectShortName">tick_9_0_sub_sec_down</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffffff</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_e_4_7_6/uut/tick_9_0_sec_a_down" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">tick_9_0_sec_a_down</obj_property>
@@ -159,5 +226,21 @@
    <wvobject fp_name="/tb_e_4_7_6/uut/tick_5_0_sec_b_down" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">tick_5_0_sec_b_down</obj_property>
       <obj_property name="ObjectShortName">tick_5_0_sec_b_down</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_6/uut/ff_up_re" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ff_up_re</obj_property>
+      <obj_property name="ObjectShortName">ff_up_re</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_6/uut/ff_up_fe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ff_up_fe</obj_property>
+      <obj_property name="ObjectShortName">ff_up_fe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_6/uut/segment_up" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_up[3:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_up[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_6/uut/segment_down" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">segment_down[3:0]</obj_property>
+      <obj_property name="ObjectShortName">segment_down[3:0]</obj_property>
    </wvobject>
 </wave_config>
