@@ -71,18 +71,13 @@ module counter_0_9_up_seq (counter_out, clock, reset, enable, load, value);
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g0_memory
-      // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
-      //       Clock Enable (posedge clk).
-      //       All families.
-      // Xilinx HDL Libraries Guide, version 10.1.2
       FDCE #(.INIT(1'b0)) FDCE_inst (
-        .Q   (     counter_0_9_in[i]), // Data output
-        .C   (                 clock), // Clock input
-        .CE  (                enable), // Clock enable input
-        .CLR (                 reset), // Asynchronous clear input
-        .D   (counter_0_9_out_mux[i])  // Data input
+        .Q   (     counter_0_9_in[i]),
+        .C   (                 clock),
+        .CE  (                enable),
+        .CLR (                 reset),
+        .D   (counter_0_9_out_mux[i])
       );
-      // End of FDCE_inst instantiation
     end
   endgenerate
 
@@ -144,18 +139,13 @@ module counter_0_9_down_seq (counter_out, clock, reset, enable, load, value);
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g0_memory
-      // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
-      //       Clock Enable (posedge clk).
-      //       All families.
-      // Xilinx HDL Libraries Guide, version 10.1.2
       FDCE #(.INIT(1'b0)) FDCE_inst (
-        .Q   (     counter_0_9_in[i]), // Data output
-        .C   (                 clock), // Clock input
-        .CE  (                enable), // Clock enable input
-        .CLR (                 reset), // Asynchronous clear input
-        .D   (counter_0_9_out_mux[i])  // Data input
+        .Q   (     counter_0_9_in[i]),
+        .C   (                 clock),
+        .CE  (                enable),
+        .CLR (                 reset),
+        .D   (counter_0_9_out_mux[i])
       );
-      // End of FDCE_inst instantiation
     end
   endgenerate
 
@@ -196,35 +186,56 @@ module counter_5_0_down_seq (counter_out, clock, reset, enable, load, value);
 
   genvar i;
 
+  wire load_r;
+  FDCE #(.INIT(1'b0)) FDCE_inst (
+    .Q   (load_r),
+    .C   (clock ),
+    .CE  (1'b1  ),
+    .CLR (1'b0  ),
+    .D   (load  )
+  );
+
   generate
     for (i = 0; i < 3; i = i + 1) begin : g1_memory_load_mux2
       m2_1 memory_load_mux2 (
         .o  (counter_5_0_out_mux[i]),
         .d1 (              value[i]),
         .d0 (    counter_5_0_out[i]),
-        .s0 (                  load)
+        .s0 (                load_r)
       );
     end
   endgenerate
 
   generate
     for (i = 0; i < 3; i = i + 1) begin : g0_memory
-      // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
-      //       Clock Enable (posedge clk).
-      //       All families.
-      // Xilinx HDL Libraries Guide, version 10.1.2
-      FDCE #(.INIT(1'b0)) FDCE_inst (
-        .Q   (     counter_5_0_in[i]), // Data output
-        .C   (                 clock), // Clock input
-        .CE  (                enable), // Clock enable input
-        .CLR (                 reset), // Asynchronous clear input
-        .D   (counter_5_0_out_mux[i])  // Data input
+//      FDCE #(.INIT(1'b0)) FDCE_inst (
+//        .Q   (     counter_5_0_in[i]),
+//        .C   (                 clock),
+//        .CE  (                enable),
+//        .CLR (          reset | load),
+//        .D   (counter_5_0_out_mux[i])
+//      );
+      FDCPE #(.INIT(1'b0)) FDCE_inst (
+        .Q   ( counter_5_0_in[i]),
+        .C   (             clock),
+        .CE  (            enable),
+        .CLR (      reset | load),
+        .PRE (          value[i]),
+        .D   (counter_5_0_out[i])
       );
+//      FDRSE #(.INIT(1'b0)) FDCE_inst (
+//        .Q  ( counter_5_0_in[i]),
+//        .C  (             clock),
+//        .CE (            enable),
+//        .R  (      reset | load),
+//        .S  (          value[i]),
+//        .D  (counter_5_0_out[i])
+//      );
       // End of FDCE_inst instantiation
     end
   endgenerate
 
-  always @(*) counter_out = counter_5_0_out;
+  always @(*) counter_out = counter_5_0_in;
 endmodule
 
 module counter_9_0_down_com (y, x);
@@ -266,35 +277,55 @@ module counter_9_0_down_seq (counter_out, clock, reset, enable, load, value);
 
   genvar i;
 
+  wire load_r;
+  FDCE #(.INIT(1'b0)) FDCE_inst (
+    .Q   (load_r),
+    .C   (clock ),
+    .CE  (1'b1  ),
+    .CLR (1'b0  ),
+    .D   (load  )
+  );
+
   generate
     for (i = 0; i < 4; i = i + 1) begin : g1_memory_load_mux2
       m2_1 memory_load_mux2 (
         .o  (counter_9_0_out_mux[i]),
         .d1 (              value[i]),
         .d0 (    counter_9_0_out[i]),
-        .s0 (                  load)
+        .s0 (                load_r)
       );
     end
   endgenerate
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g0_memory
-      // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
-      //       Clock Enable (posedge clk).
-      //       All families.
-      // Xilinx HDL Libraries Guide, version 10.1.2
-      FDCE #(.INIT(1'b0)) FDCE_inst (
-        .Q   (     counter_9_0_in[i]), // Data output
-        .C   (                 clock), // Clock input
-        .CE  (                enable), // Clock enable input
-        .CLR (                 reset), // Asynchronous clear input
-        .D   (counter_9_0_out_mux[i])  // Data input
+//      FDCE #(.INIT(1'b0)) FDCE_inst (
+//        .Q   (     counter_9_0_in[i]),
+//        .C   (                 clock),
+//        .CE  (                enable),
+//        .CLR (          reset | load),
+//        .D   (counter_9_0_out_mux[i])
+//      );
+      FDCPE #(.INIT(1'b0)) FDCE_inst (
+        .Q   ( counter_9_0_in[i]),
+        .C   (             clock),
+        .CE  (            enable),
+        .CLR (      reset | load),
+        .PRE (          value[i]),
+        .D   (counter_9_0_out[i])
       );
-      // End of FDCE_inst instantiation
+//      FDRSE #(.INIT(1'b0)) FDCE_inst (
+//        .Q  ( counter_9_0_in[i]),
+//        .C  (             clock),
+//        .CE (            enable),
+//        .R  (             reset),
+//        .S  (          value[i]),
+//        .D  (counter_9_0_out[i])
+//      );
     end
   endgenerate
 
-  always @(*) counter_out = counter_9_0_out;
+  always @(*) counter_out = counter_9_0_in;
 endmodule
 
 module mux41_4 (y, x0, x1, x2, x3, s);
@@ -363,12 +394,12 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
   wire [3:0] cr4_0_9_sub_sec_load;
   wire [3:0] cr4_0_9_sec_a_load;
   wire [3:0] cr4_0_9_min_load;
-  wire [3:0] ff_up;
+  wire [7:0] ff_up;
   wire [6:0] segment_up_seg7, segment_down_seg7;
 
   assign cr4_0_5_sec_b_load_1 = {1'b0, cr4_0_5_sec_b_load};
   assign cr4_5_0_sec_b_down = {1'b0,cr4_5_0_sec_b_down_1};
-  assign ff_up_re =  ff_up[0] & ~ff_up[1];
+  assign ff_up_re =  ff_up[2] & ~ff_up[3];
   assign ff_up_fe = ~ff_up[0] &  ff_up[1];
   assign cr4_5_0_sec_b_down[3] = 0;
   assign cr_u2_anode_11 =
@@ -411,23 +442,23 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
     ~cr4_0_9_min[0];
 
   generate
-    for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_up_chain
+    for (i = 0; i < 8; i = i + 1) begin : g_FDCE_inst_ff_up_chain
       if (i == 0) begin : g_FDCE_inst_ff_up_chain_0
         FDCE #(.INIT(1'b0)) FDCE_inst_ff_up_chain_0 (
-          .Q   (ff_up[0]), // Data output
-          .C   (   clock), // Clock input
-          .CE  (  enable), // Clock enable input
-          .CLR (   reset), // Asynchronous clear input
-          .D   (      up)  // Data input
+          .Q   (ff_up[0]),
+          .C   (   clock),
+          .CE  (  enable),
+          .CLR (   reset),
+          .D   (      up)
         );
       end
       else begin : g_FDCE_inst_ff_up_chain_rest
         FDCE #(.INIT(1'b0)) FDCE_inst_ff_up_chain_rest (
-          .Q   (  ff_up[i]), // Data output
-          .C   (     clock), // Clock input
-          .CE  (    enable), // Clock enable input
-          .CLR (     reset), // Asynchronous clear input
-          .D   (ff_up[i-1])  // Data input
+          .Q   (  ff_up[i]),
+          .C   (     clock),
+          .CE  (    enable),
+          .CLR (     reset),
+          .D   (ff_up[i-1])
         );
       end
     end
@@ -438,7 +469,7 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
     .clock       (cr_u2_anode_11      ),
     .reset       (reset | clr         ),
     .enable      (enable              ),
-    .load        (ff_up[3]            ),
+    .load        (ff_up_re            ),
     .value       (cr4_0_9_sub_sec_load)
   );
 
@@ -447,7 +478,7 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
     .clock       (tick_9_0_sub_sec_down),
     .reset       (reset | clr          ),
     .enable      (enable               ),
-    .load        (ff_up[2]             ),
+    .load        (ff_up_re             ),
     .value       (cr4_0_9_sec_a_load   )
   );
 
@@ -456,7 +487,7 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
     .clock       (tick_9_0_sec_a_down),
     .reset       (reset | clr        ),
     .enable      (enable             ),
-    .load        (ff_up[1]           ),
+    .load        (ff_up_re           ),
     .value       (cr4_0_5_sec_b_load )
   );
 
@@ -465,7 +496,7 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
     .clock       (tick_5_0_sec_b_down),
     .reset       (reset | clr        ),
     .enable      (enable             ),
-    .load        (ff_up[0]           ),
+    .load        (ff_up_re           ),
     .value       (cr4_0_9_min_load   )
   );
 
@@ -478,14 +509,34 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
     .value       (4'b0                          )
   );
 
+  wire cr4_up_load_r, cr4_up_load_r_1;
+  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr_r (
+    .Q   (cr4_up_load_r),
+    .C   (clock        ),
+    .CE  (enable       ),
+    .CLR (ff_up[7]     ),
+    .D   (ff_up[1]     )
+  );
+
+  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr_r_1 (
+    .Q   (cr4_up_load_r_1),
+    .C   (clock          ),
+    .CE  (enable         ),
+    .CLR (reset          ),
+    .D   (cr4_up_load_r  )
+  );
+
+  wire cr4_up_load_r_xor;
+  assign cr4_up_load_r_xor = ~cr4_up_load_r & cr4_up_load_r_1;
+
   generate
     for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr1
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr1 (
-        .Q   (cr4_0_9_sub_sec_load[i]), // Data output
-        .C   (                  clock), // Clock input
-        .CE  (               ff_up_re), // Clock enable input
-        .CLR (                  reset), // Asynchronous clear input
-        .D   (     cr4_0_9_sub_sec[i])  // Data input
+        .Q   (  cr4_0_9_sub_sec_load[i]),
+        .C   (                    clock),
+        .CE  (                 ff_up_re),
+        .CLR (reset | cr4_up_load_r_xor),
+        .D   (       cr4_0_9_sub_sec[i])
       );
     end
   endgenerate
@@ -502,11 +553,11 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
   generate
     for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr2
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr2 (
-        .Q   (cr4_0_9_sec_a_load[i]), // Data output
-        .C   (                clock), // Clock input
-        .CE  (             ff_up_re), // Clock enable input
-        .CLR (                reset), // Asynchronous clear input
-        .D   (     cr4_0_9_sec_a[i])  // Data input
+        .Q   (    cr4_0_9_sec_a_load[i]),
+        .C   (                    clock),
+        .CE  (                 ff_up_re),
+        .CLR (reset | cr4_up_load_r_xor),
+        .D   (         cr4_0_9_sec_a[i])
       );
     end
   endgenerate
@@ -523,11 +574,11 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
   generate
     for (i = 0; i < 3; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr3
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr3 (
-        .Q   (cr4_0_5_sec_b_load[i]), // Data output
-        .C   (                clock), // Clock input
-        .CE  (             ff_up_re), // Clock enable input
-        .CLR (                reset), // Asynchronous clear input
-        .D   (     cr4_0_5_sec_b[i])  // Data input
+        .Q   (    cr4_0_5_sec_b_load[i]),
+        .C   (                    clock),
+        .CE  (                 ff_up_re),
+        .CLR (reset | cr4_up_load_r_xor),
+        .D   (         cr4_0_5_sec_b[i])
       );
     end
   endgenerate
@@ -544,11 +595,11 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
   generate
     for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr4
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr4 (
-        .Q   (cr4_0_9_min_load[i]), // Data output
-        .C   (              clock), // Clock input
-        .CE  (           ff_up_re), // Clock enable input
-        .CLR (              reset), // Asynchronous clear input
-        .D   (     cr4_0_9_min[i])  // Data input
+        .Q   (      cr4_0_9_min_load[i]),
+        .C   (                    clock),
+        .CE  (                 ff_up_re),
+        .CLR (reset | cr4_up_load_r_xor),
+        .D   (           cr4_0_9_min[i])
       );
     end
   endgenerate
