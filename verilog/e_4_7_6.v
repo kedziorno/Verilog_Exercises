@@ -15,7 +15,7 @@
 //
 // Revision:
 // Revision 0.01 - File Created
-// Additional Comments: Logic experssions. TODO - reload register with up
+// Additional Comments: Logic experssions.
 //
 ///////////////////////////////////////////////////////////////////////////////
 module counter_0_9_up_com (y, x);
@@ -71,11 +71,12 @@ module counter_0_9_up_seq (counter_out, clock, reset, enable, load, value);
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g0_memory
-      FDCE #(.INIT(1'b0)) FDCE_inst (
+      FDCPE #(.INIT(1'b0)) FDCE_inst (
         .Q   (     counter_0_9_in[i]),
         .C   (                 clock),
         .CE  (                enable),
-        .CLR (                 reset),
+        .CLR (          reset | load),
+        .PRE (              value[i]),
         .D   (counter_0_9_out_mux[i])
       );
     end
@@ -90,20 +91,20 @@ module counter_0_9_down_com (y, x);
 
   wire [3:0] x, y;
 
-  assign y[0] =
+  assign #1 y[0] =
     (~x[3] &          x[1] & ~x[0]) |
     (        ~x[2] &  x[1] & ~x[0]) |
     (~x[3] &  x[2] &         ~x[0]) |
     ( x[3] & ~x[2] &         ~x[0]);
-  assign y[1] =
+  assign #1 y[1] =
     (~x[3] &         ~x[1] & ~x[0]) |
     (        ~x[2] & ~x[1] & ~x[0]) |
     (~x[3] &          x[1] &  x[0]);
-  assign y[2] =
+  assign #1 y[2] =
     ( x[3] & ~x[2] & ~x[1] & ~x[0]) |
     (~x[3] &  x[2] &          x[0]) |
     (~x[3] &  x[2] &  x[1]        );
-  assign y[3] =
+  assign #1 y[3] =
     (~x[3] & ~x[2] & ~x[1] & ~x[0]) |
     ( x[3] & ~x[2] & ~x[1] &  x[0]) |
     ( x[3] & ~x[2] &  x[1] & ~x[0]);
@@ -139,17 +140,18 @@ module counter_0_9_down_seq (counter_out, clock, reset, enable, load, value);
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g0_memory
-      FDCE #(.INIT(1'b0)) FDCE_inst (
+      FDCPE #(.INIT(1'b0)) FDCE_inst (
         .Q   (     counter_0_9_in[i]),
         .C   (                 clock),
         .CE  (                enable),
-        .CLR (                 reset),
+        .CLR (          reset | load),
+        .PRE (              value[i]),
         .D   (counter_0_9_out_mux[i])
       );
     end
   endgenerate
 
-  always @(*) counter_out = counter_0_9_out;
+  always @(*) counter_out = counter_0_9_in;
 endmodule
 
 module counter_5_0_down_com (y, x);
@@ -158,13 +160,13 @@ module counter_5_0_down_com (y, x);
 
   wire [2:0] x, y;
 
-  assign y[0] =
+  assign #1 y[0] =
     (~x[2] &         ~x[0]) |
     (        ~x[1] & ~x[0]);
-  assign y[1] =
+  assign #1 y[1] =
     ( x[2] & ~x[1] & ~x[0]) |
     (~x[2] &  x[1] &  x[0]) ;
-  assign y[2] =
+  assign #1 y[2] =
     (~x[2] & ~x[1] & ~x[0]) |
     ( x[2] & ~x[1] &  x[0]) ;
 endmodule
@@ -186,56 +188,31 @@ module counter_5_0_down_seq (counter_out, clock, reset, enable, load, value);
 
   genvar i;
 
-  wire load_r;
-  FDCE #(.INIT(1'b0)) FDCE_inst (
-    .Q   (load_r),
-    .C   (clock ),
-    .CE  (1'b1  ),
-    .CLR (1'b0  ),
-    .D   (load  )
-  );
-
   generate
     for (i = 0; i < 3; i = i + 1) begin : g1_memory_load_mux2
       m2_1 memory_load_mux2 (
         .o  (counter_5_0_out_mux[i]),
         .d1 (              value[i]),
         .d0 (    counter_5_0_out[i]),
-        .s0 (                load_r)
+        .s0 (                  load)
       );
     end
   endgenerate
 
   generate
     for (i = 0; i < 3; i = i + 1) begin : g0_memory
-//      FDCE #(.INIT(1'b0)) FDCE_inst (
-//        .Q   (     counter_5_0_in[i]),
-//        .C   (                 clock),
-//        .CE  (                enable),
-//        .CLR (          reset | load),
-//        .D   (counter_5_0_out_mux[i])
-//      );
       FDCPE #(.INIT(1'b0)) FDCE_inst (
-        .Q   ( counter_5_0_in[i]),
-        .C   (             clock),
-        .CE  (            enable),
-        .CLR (      reset | load),
-        .PRE (          value[i]),
-        .D   (counter_5_0_out[i])
+        .Q   (     counter_5_0_in[i]),
+        .C   (                 clock),
+        .CE  (                enable),
+        .CLR (          reset | load),
+        .PRE (              value[i]),
+        .D   (counter_5_0_out_mux[i])
       );
-//      FDRSE #(.INIT(1'b0)) FDCE_inst (
-//        .Q  ( counter_5_0_in[i]),
-//        .C  (             clock),
-//        .CE (            enable),
-//        .R  (      reset | load),
-//        .S  (          value[i]),
-//        .D  (counter_5_0_out[i])
-//      );
-      // End of FDCE_inst instantiation
     end
   endgenerate
 
-  always @(*) counter_out = counter_5_0_in;
+  always @(*) counter_out = #1 counter_5_0_in;
 endmodule
 
 module counter_9_0_down_com (y, x);
@@ -244,18 +221,18 @@ module counter_9_0_down_com (y, x);
 
   wire [3:0] x, y;
 
-  assign y[0] =
+  assign #1 y[0] =
     (~x[3] &                 ~x[0]) |
     (        ~x[2] & ~x[1] & ~x[0]);
-  assign y[1] =
+  assign #1 y[1] =
     (~x[3] &          x[1] &  x[0]) |
     (~x[3] &  x[2] & ~x[1] & ~x[0]) |
     ( x[3] & ~x[2] & ~x[1] & ~x[0]);
-  assign y[2] =
+  assign #1 y[2] =
     ( x[3] & ~x[2] & ~x[1] & ~x[0]) |
     (~x[3] &  x[2] &          x[0]) |
     (~x[3] &  x[2] &  x[1]        );
-  assign y[3] =
+  assign #1 y[3] =
     (~x[3] & ~x[2] & ~x[1] & ~x[0]) |
     ( x[3] & ~x[2] & ~x[1] &  x[0]);
 endmodule
@@ -277,55 +254,31 @@ module counter_9_0_down_seq (counter_out, clock, reset, enable, load, value);
 
   genvar i;
 
-  wire load_r;
-  FDCE #(.INIT(1'b0)) FDCE_inst (
-    .Q   (load_r),
-    .C   (clock ),
-    .CE  (1'b1  ),
-    .CLR (1'b0  ),
-    .D   (load  )
-  );
-
   generate
     for (i = 0; i < 4; i = i + 1) begin : g1_memory_load_mux2
       m2_1 memory_load_mux2 (
         .o  (counter_9_0_out_mux[i]),
         .d1 (              value[i]),
         .d0 (    counter_9_0_out[i]),
-        .s0 (                load_r)
+        .s0 (                  load)
       );
     end
   endgenerate
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g0_memory
-//      FDCE #(.INIT(1'b0)) FDCE_inst (
-//        .Q   (     counter_9_0_in[i]),
-//        .C   (                 clock),
-//        .CE  (                enable),
-//        .CLR (          reset | load),
-//        .D   (counter_9_0_out_mux[i])
-//      );
       FDCPE #(.INIT(1'b0)) FDCE_inst (
-        .Q   ( counter_9_0_in[i]),
-        .C   (             clock),
-        .CE  (            enable),
-        .CLR (      reset | load),
-        .PRE (          value[i]),
-        .D   (counter_9_0_out[i])
+        .Q   (     counter_9_0_in[i]),
+        .C   (                 clock),
+        .CE  (                enable),
+        .CLR (          reset | load),
+        .PRE (              value[i]),
+        .D   (counter_9_0_out_mux[i])
       );
-//      FDRSE #(.INIT(1'b0)) FDCE_inst (
-//        .Q  ( counter_9_0_in[i]),
-//        .C  (             clock),
-//        .CE (            enable),
-//        .R  (             reset),
-//        .S  (          value[i]),
-//        .D  (counter_9_0_out[i])
-//      );
     end
   endgenerate
 
-  always @(*) counter_out = counter_9_0_in;
+  always @(*) counter_out = #1 counter_9_0_in;
 endmodule
 
 module mux41_4 (y, x0, x1, x2, x3, s);
@@ -337,10 +290,10 @@ module mux41_4 (y, x0, x1, x2, x3, s);
   wire [1:0] s;
 
   wire [3:0] x [0:3];
-  assign x[0] = x0;
-  assign x[1] = x1;
-  assign x[2] = x2;
-  assign x[3] = x3;
+  assign #1 x[0] = x0;
+  assign #1 x[1] = x1;
+  assign #1 x[2] = x2;
+  assign #1 x[3] = x3;
   genvar i;
 
   generate
@@ -378,239 +331,323 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
   assign anode_array[1] = anode_1;
   assign anode_array[2] = anode_2;
   assign anode_array[3] = anode_3;
-  wire ff_up_re, ff_up_fe;
-  wire cr_u2_anode_11;
-  wire tick_0_9_sub_sec, tick_0_9_sec_a, tick_0_5_sec_b, tick_0_9_min;
-  wire tick_9_0_sub_sec_down;
-  wire tick_9_0_sec_a_down;
+  wire ff_up_input_re, ff_up_input_fe;
+  wire cr_u2_anode_00;
+  wire cr4_up_load_reset_xor, cr4_up_load_reset, cr4_up_load_reset_1;
+  wire cr4_down_load_reset_xor, cr4_down_load_reset, cr4_down_load_reset_1;
+  wire tick_0_9_sub_sec_up,   tick_0_9_sec_a_up,   tick_0_5_sec_b_up,   tick_0_9_min_up;
+  wire tick_9_0_sub_sec_down, tick_9_0_sec_a_down, tick_5_0_sec_b_down;
+  `ifdef XILINX_ISIM
+  wire tick_9_0_min_down;
+  `endif
   wire [1:0] cr_u2_anode;
-  wire [2:0] cr4_0_5_sec_b_load;
-  wire [3:0] cr4_0_5_sec_b_load_1;
-  wire [2:0] cr4_5_0_sec_b_down_1;
-  wire [3:0] cr4_5_0_sec_b_down;
-  wire [3:0] cr4_0_9_sub_sec, cr4_0_9_sec_a, cr4_0_5_sec_b, cr4_0_9_min;
-  wire [3:0] cr4_9_0_sub_sec_down, cr4_9_0_sec_a_down, cr4_9_0_min_down;
+  wire [2:0] cr4_0_5_sec_b_up_load, cr4_5_0_sec_b_down_1;
+  wire [3:0] cr4_0_5_sec_b_up;
+  wire [3:0] cr4_0_9_sub_sec_up,      cr4_0_9_sec_a_up,      cr4_0_9_min_up;
+  wire [3:0] cr4_0_9_sub_sec_up_load, cr4_0_9_sec_a_up_load, cr4_0_9_min_up_load;
+  wire [3:0] cr4_9_0_sub_sec_down,      cr4_9_0_sec_a_down,      cr4_5_0_sec_b_down,      cr4_9_0_min_down;
+  wire [3:0] cr4_9_0_sub_sec_down_load, cr4_9_0_sec_a_down_load, cr4_5_0_sec_b_down_load, cr4_9_0_min_down_load;
+  `ifdef XILINX_ISIM
+  wire [3:0] cr4_0_5_sec_b_up_load_1;
+  `endif
   wire [3:0] segment_up, segment_down;
-  wire [3:0] cr4_0_9_sub_sec_load;
-  wire [3:0] cr4_0_9_sec_a_load;
-  wire [3:0] cr4_0_9_min_load;
-  wire [7:0] ff_up;
   wire [6:0] segment_up_seg7, segment_down_seg7;
+  wire [7:0] ff_up_input;
 
-  assign cr4_0_5_sec_b_load_1 = {1'b0, cr4_0_5_sec_b_load};
-  assign cr4_5_0_sec_b_down = {1'b0,cr4_5_0_sec_b_down_1};
-  assign ff_up_re =  ff_up[2] & ~ff_up[3];
-  assign ff_up_fe = ~ff_up[0] &  ff_up[1];
+  `ifdef XILINX_ISIM
+  assign cr4_0_5_sec_b_up_load_1 = {1'b0, cr4_0_5_sec_b_up_load};
+  `endif
+  assign cr4_5_0_sec_b_down = {1'b0, cr4_5_0_sec_b_down_1};
   assign cr4_5_0_sec_b_down[3] = 0;
-  assign cr_u2_anode_11 =
+  assign #1 cr4_up_load_reset_xor = ~cr4_up_load_reset & cr4_up_load_reset_1;
+  assign #1 cr4_down_load_reset_xor = ~cr4_down_load_reset & cr4_down_load_reset_1;
+  assign #1 ff_up_input_re =  ff_up_input[5] & ~ff_up_input[6];
+  assign #1 ff_up_input_fe = ~ff_up_input[6] &  ff_up_input[7];
+  assign #1 cr_u2_anode_00 =
     ~cr_u2_anode[1] &
     ~cr_u2_anode[0];
-  assign #10 tick_9_0_sub_sec_down =
+
+  assign #1 tick_9_0_sub_sec_down =
      cr4_9_0_sub_sec_down[3] &
     ~cr4_9_0_sub_sec_down[2] &
     ~cr4_9_0_sub_sec_down[1] &
      cr4_9_0_sub_sec_down[0];
-  assign #10 tick_9_0_sec_a_down =
+  assign #1 tick_0_9_sub_sec_up =
+     cr4_0_9_sub_sec_up[3] &
+    ~cr4_0_9_sub_sec_up[2] &
+     cr4_0_9_sub_sec_up[1] &
+    ~cr4_0_9_sub_sec_up[0];
+
+  assign #1 tick_9_0_sec_a_down =
      cr4_9_0_sec_a_down[3] &
     ~cr4_9_0_sec_a_down[2] &
     ~cr4_9_0_sec_a_down[1] &
      cr4_9_0_sec_a_down[0];
-  assign #10 tick_5_0_sec_b_down =
+  assign #1 tick_0_9_sec_a_up =
+     cr4_0_9_sec_a_up[3] &
+    ~cr4_0_9_sec_a_up[2] &
+     cr4_0_9_sec_a_up[1] &
+    ~cr4_0_9_sec_a_up[0];
+
+  assign #1 tick_5_0_sec_b_down =
     ~cr4_5_0_sec_b_down[3] &
      cr4_5_0_sec_b_down[2] &
     ~cr4_5_0_sec_b_down[1] &
      cr4_5_0_sec_b_down[0];
-  assign #10 tick_0_9_sub_sec =
-     cr4_0_9_sub_sec[3] &
-    ~cr4_0_9_sub_sec[2] &
-     cr4_0_9_sub_sec[1] &
-    ~cr4_0_9_sub_sec[0];
-  assign #10 tick_0_9_sec_a =
-     cr4_0_9_sec_a[3] &
-    ~cr4_0_9_sec_a[2] &
-     cr4_0_9_sec_a[1] &
-    ~cr4_0_9_sec_a[0];
-  assign #10 tick_0_5_sec_b =
-    ~cr4_0_5_sec_b[3] &
-     cr4_0_5_sec_b[2] &
-     cr4_0_5_sec_b[1] &
-    ~cr4_0_5_sec_b[0];
-  assign #10 tick_0_9_min =
-     cr4_0_9_min[3] &
-    ~cr4_0_9_min[2] &
-     cr4_0_9_min[1] &
-    ~cr4_0_9_min[0];
+  assign #1 tick_0_5_sec_b_up =
+    ~cr4_0_5_sec_b_up[3] &
+     cr4_0_5_sec_b_up[2] &
+     cr4_0_5_sec_b_up[1] &
+    ~cr4_0_5_sec_b_up[0];
+`ifdef XILINX_ISIM
+  assign #1 tick_9_0_min_down =
+     cr4_9_0_min_down[3] &
+    ~cr4_9_0_min_down[2] &
+     cr4_9_0_min_down[1] &
+    ~cr4_9_0_min_down[0];
+`endif
+  assign #1 tick_0_9_min_up =
+     cr4_0_9_min_up[3] &
+    ~cr4_0_9_min_up[2] &
+     cr4_0_9_min_up[1] &
+    ~cr4_0_9_min_up[0];
 
+// up chain - input signal
   generate
-    for (i = 0; i < 8; i = i + 1) begin : g_FDCE_inst_ff_up_chain
-      if (i == 0) begin : g_FDCE_inst_ff_up_chain_0
-        FDCE #(.INIT(1'b0)) FDCE_inst_ff_up_chain_0 (
-          .Q   (ff_up[0]),
-          .C   (   clock),
-          .CE  (  enable),
-          .CLR (   reset),
-          .D   (      up)
+    for (i = 0; i < 8; i = i + 1) begin : g_FDCE_inst_ff_up_input_chain
+      if (i == 0) begin : g_FDCE_inst_ff_up_input_chain_0
+        FDCE #(.INIT(1'b0)) FDCE_inst_ff_up_input_chain_0 (
+          .Q   (ff_up_input[0]),
+          .C   (         clock),
+          .CE  (        enable),
+          .CLR (         reset),
+          .D   (            up)
         );
       end
-      else begin : g_FDCE_inst_ff_up_chain_rest
-        FDCE #(.INIT(1'b0)) FDCE_inst_ff_up_chain_rest (
-          .Q   (  ff_up[i]),
-          .C   (     clock),
-          .CE  (    enable),
-          .CLR (     reset),
-          .D   (ff_up[i-1])
+      else begin : g_FDCE_inst_ff_up_input_chain_rest
+        FDCE #(.INIT(1'b0)) FDCE_inst_ff_up_input_chain_rest (
+          .Q   (  ff_up_input[i]),
+          .C   (           clock),
+          .CE  (          enable),
+          .CLR (           reset),
+          .D   (ff_up_input[i-1])
         );
       end
     end
   endgenerate
 
-  counter_9_0_down_seq cr4_9_0_sub_sec_down_uut (
-    .counter_out (cr4_9_0_sub_sec_down),
-    .clock       (cr_u2_anode_11      ),
-    .reset       (reset | clr         ),
-    .enable      (enable              ),
-    .load        (ff_up_re            ),
-    .value       (cr4_0_9_sub_sec_load)
+// ff load up reset xor
+  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr_reset (
+    .Q   (cr4_up_load_reset),
+    .C   (clock            ),
+    .CE  (enable           ),
+    .CLR (ff_up_input[7]   ),
+    .D   (ff_up_input[0]   )
   );
+
+  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr_reset_1 (
+    .Q   (cr4_up_load_reset_1),
+    .C   (clock              ),
+    .CE  (enable             ),
+    .CLR (reset              ),
+    .D   (cr4_up_load_reset  )
+  );
+
+// ff load down reset xor
+  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_down_cntr_reset (
+    .Q   (cr4_down_load_reset),
+    .C   (clock              ),
+    .CE  (enable             ),
+    .CLR (ff_up_input[0]     ),
+    .D   (ff_up_input[7]     )
+  );
+
+  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_down_cntr_reset_1 (
+    .Q   (cr4_down_load_reset_1),
+    .C   (clock                ),
+    .CE  (enable               ),
+    .CLR (reset                ),
+    .D   (cr4_down_load_reset  )
+  );
+
+// down
+  counter_9_0_down_seq cr4_9_0_sub_sec_down_uut (
+    .counter_out (cr4_9_0_sub_sec_down   ),
+    .clock       (cr_u2_anode_00         ),
+    .reset       (reset | clr            ),
+    .enable      (enable                 ),
+    .load        (ff_up_input_re         ),
+    .value       (cr4_0_9_sub_sec_up_load)
+  );
+
+  generate
+    for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_down_cntr1
+      FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_down_cntr1 (
+        .Q   (   cr4_9_0_sub_sec_down_load[i]),
+        .C   (                          clock),
+        .CE  (                 ff_up_input_fe),
+        .CLR (reset | cr4_down_load_reset_xor),
+        .D   (        cr4_9_0_sub_sec_down[i])
+      );
+    end
+  endgenerate
 
   counter_9_0_down_seq cr4_9_0_sec_a_down_uut (
     .counter_out (cr4_9_0_sec_a_down   ),
     .clock       (tick_9_0_sub_sec_down),
     .reset       (reset | clr          ),
     .enable      (enable               ),
-    .load        (ff_up_re             ),
-    .value       (cr4_0_9_sec_a_load   )
+    .load        (ff_up_input_re       ),
+    .value       (cr4_0_9_sec_a_up_load)
   );
 
+  generate
+    for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_down_cntr2
+      FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_down_cntr2 (
+        .Q   (     cr4_9_0_sec_a_down_load[i]),
+        .C   (                          clock),
+        .CE  (                 ff_up_input_fe),
+        .CLR (reset | cr4_down_load_reset_xor),
+        .D   (          cr4_9_0_sec_a_down[i])
+      );
+    end
+  endgenerate
+
   counter_5_0_down_seq cr4_5_0_sec_b_down_uut (
-    .counter_out (cr4_5_0_sec_b_down_1),
-    .clock       (tick_9_0_sec_a_down),
-    .reset       (reset | clr        ),
-    .enable      (enable             ),
-    .load        (ff_up_re           ),
-    .value       (cr4_0_5_sec_b_load )
+    .counter_out (cr4_5_0_sec_b_down_1  ),
+    .clock       (tick_9_0_sec_a_down   ),
+    .reset       (reset | clr           ),
+    .enable      (enable                ),
+    .load        (ff_up_input_re        ),
+    .value       (cr4_0_5_sec_b_up_load )
   );
+
+  generate
+    for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_down_cntr3
+      FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_down_cntr3 (
+        .Q   (     cr4_5_0_sec_b_down_load[i]),
+        .C   (                          clock),
+        .CE  (                 ff_up_input_fe),
+        .CLR (reset | cr4_down_load_reset_xor),
+        .D   (          cr4_5_0_sec_b_down[i])
+      );
+    end
+  endgenerate
 
   counter_9_0_down_seq cr4_9_0_min_down_uut (
     .counter_out (cr4_9_0_min_down   ),
     .clock       (tick_5_0_sec_b_down),
     .reset       (reset | clr        ),
     .enable      (enable             ),
-    .load        (ff_up_re           ),
-    .value       (cr4_0_9_min_load   )
+    .load        (ff_up_input_re     ),
+    .value       (cr4_0_9_min_up_load)
   );
 
+  generate
+    for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_down_cntr4
+      FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_down_cntr4 (
+        .Q   (       cr4_9_0_min_down_load[i]),
+        .C   (                          clock),
+        .CE  (                 ff_up_input_fe),
+        .CLR (reset | cr4_down_load_reset_xor),
+        .D   (            cr4_9_0_min_down[i])
+      );
+    end
+  endgenerate
+
+// up
   counter_0_9_up_seq cr4_0_9_sub_sec_up_uut (
-    .counter_out (cr4_0_9_sub_sec               ),
-    .clock       (cr_u2_anode_11                ),
-    .reset       (reset | tick_0_9_sub_sec | clr),
-    .enable      (enable                        ),
-    .load        (1'b0                          ),
-    .value       (4'b0                          )
+    .counter_out (cr4_0_9_sub_sec_up               ),
+    .clock       (cr_u2_anode_00                   ),
+    .reset       (reset | tick_0_9_sub_sec_up | clr),
+    .enable      (enable                           ),
+    .load        (ff_up_input_fe                   ),
+    .value       (cr4_9_0_sub_sec_down_load        )
   );
-
-  wire cr4_up_load_r, cr4_up_load_r_1;
-  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr_r (
-    .Q   (cr4_up_load_r),
-    .C   (clock        ),
-    .CE  (enable       ),
-    .CLR (ff_up[7]     ),
-    .D   (ff_up[1]     )
-  );
-
-  FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr_r_1 (
-    .Q   (cr4_up_load_r_1),
-    .C   (clock          ),
-    .CE  (enable         ),
-    .CLR (reset          ),
-    .D   (cr4_up_load_r  )
-  );
-
-  wire cr4_up_load_r_xor;
-  assign cr4_up_load_r_xor = ~cr4_up_load_r & cr4_up_load_r_1;
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr1
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr1 (
-        .Q   (  cr4_0_9_sub_sec_load[i]),
-        .C   (                    clock),
-        .CE  (                 ff_up_re),
-        .CLR (reset | cr4_up_load_r_xor),
-        .D   (       cr4_0_9_sub_sec[i])
+        .Q   (    cr4_0_9_sub_sec_up_load[i]),
+        .C   (                         clock),
+        .CE  (                ff_up_input_re),
+        .CLR ( reset | cr4_up_load_reset_xor),
+        .D   (         cr4_0_9_sub_sec_up[i])
       );
     end
   endgenerate
 
   counter_0_9_up_seq cr4_0_9_sec_a_up_uut (
-    .counter_out (cr4_0_9_sec_a               ),
-    .clock       (tick_0_9_sub_sec            ),
-    .reset       (reset | tick_0_9_sec_a | clr),
-    .enable      (enable                      ),
-    .load        (1'b0                        ),
-    .value       (4'b0                        )
+    .counter_out (cr4_0_9_sec_a_up               ),
+    .clock       (tick_0_9_sub_sec_up            ),
+    .reset       (reset | tick_0_9_sec_a_up | clr),
+    .enable      (enable                         ),
+    .load        (ff_up_input_fe                 ),
+    .value       (cr4_9_0_sec_a_down_load        )
   );
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr2
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr2 (
-        .Q   (    cr4_0_9_sec_a_load[i]),
-        .C   (                    clock),
-        .CE  (                 ff_up_re),
-        .CLR (reset | cr4_up_load_r_xor),
-        .D   (         cr4_0_9_sec_a[i])
+        .Q   (     cr4_0_9_sec_a_up_load[i]),
+        .C   (                        clock),
+        .CE  (               ff_up_input_re),
+        .CLR (reset | cr4_up_load_reset_xor),
+        .D   (          cr4_0_9_sec_a_up[i])
       );
     end
   endgenerate
 
   counter_0_9_up_seq cr4_0_5_sec_b_up_uut (
-    .counter_out (cr4_0_5_sec_b               ),
-    .clock       (tick_0_9_sec_a              ),
-    .reset       (reset | tick_0_5_sec_b | clr),
-    .enable      (enable                      ),
-    .load        (1'b0                        ),
-    .value       (4'b0                        )
+    .counter_out (cr4_0_5_sec_b_up               ),
+    .clock       (tick_0_9_sec_a_up              ),
+    .reset       (reset | tick_0_5_sec_b_up | clr),
+    .enable      (enable                         ),
+    .load        (ff_up_input_fe                 ),
+    .value       (cr4_5_0_sec_b_down_load        )
   );
 
   generate
     for (i = 0; i < 3; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr3
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr3 (
-        .Q   (    cr4_0_5_sec_b_load[i]),
-        .C   (                    clock),
-        .CE  (                 ff_up_re),
-        .CLR (reset | cr4_up_load_r_xor),
-        .D   (         cr4_0_5_sec_b[i])
+        .Q   (     cr4_0_5_sec_b_up_load[i]),
+        .C   (                        clock),
+        .CE  (               ff_up_input_re),
+        .CLR (reset | cr4_up_load_reset_xor),
+        .D   (          cr4_0_5_sec_b_up[i])
       );
     end
   endgenerate
 
   counter_0_9_up_seq cr4_0_9_min_up_uut (
-    .counter_out (cr4_0_9_min               ),
-    .clock       (tick_0_5_sec_b            ),
-    .reset       (reset | tick_0_9_min | clr),
-    .enable      (enable                    ),
-    .load        (1'b0                      ),
-    .value       (4'b0                      )
+    .counter_out (cr4_0_9_min_up               ),
+    .clock       (tick_0_5_sec_b_up            ),
+    .reset       (reset | tick_0_9_min_up | clr),
+    .enable      (enable                       ),
+    .load        (ff_up_input_fe               ),
+    .value       (cr4_9_0_min_down_load        )
   );
 
   generate
     for (i = 0; i < 4; i = i + 1) begin : g_FDCE_inst_ff_load_up_cntr4
       FDCE #(.INIT(1'b0)) FDCE_inst_ff_load_up_cntr4 (
-        .Q   (      cr4_0_9_min_load[i]),
-        .C   (                    clock),
-        .CE  (                 ff_up_re),
-        .CLR (reset | cr4_up_load_r_xor),
-        .D   (           cr4_0_9_min[i])
+        .Q   (       cr4_0_9_min_up_load[i]),
+        .C   (                        clock),
+        .CE  (               ff_up_input_re),
+        .CLR (reset | cr4_up_load_reset_xor),
+        .D   (            cr4_0_9_min_up[i])
       );
     end
   endgenerate
 
+// output
   mux41_4 mux4_segment_out_uut (
-    .y  (segment_up     ),
-    .x0 (cr4_0_9_min    ),
-    .x1 (cr4_0_5_sec_b  ),
-    .x2 (cr4_0_9_sec_a  ),
-    .x3 (cr4_0_9_sub_sec),
-    .s  (cr_u2_anode    )
+    .y  (segment_up        ),
+    .x0 (cr4_0_9_min_up    ),
+    .x1 (cr4_0_5_sec_b_up  ),
+    .x2 (cr4_0_9_sec_a_up  ),
+    .x3 (cr4_0_9_sub_sec_up),
+    .s  (cr_u2_anode       )
   );
 
   mux41_4 mux4_segment_out_down_uut (
@@ -653,6 +690,7 @@ module e_4_7_6 (anode, segment, clock, reset, up, clr, enable);
     end
   endgenerate
 
+// main divider counter - anode, segment, rest counters
   counter_up_2_seq cr_u2_anode_uut (
     .counter_out (cr_u2_anode),
     .clock       (clock      ),

@@ -272,7 +272,7 @@ enable = 1; up = 1; #1001220;
 enable = 1; up = 0; #1001320;
 enable = 1; up = 1; #1001420;
 enable = 1; up = 0; #1001520;
-//enable = 1; #1101000;
+//enable = 1; #11010000; // ok u/d counting
 $finish;
 
 end
