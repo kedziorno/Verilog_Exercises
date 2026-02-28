@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_e_4_7_7_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_e_4_7_7" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/tb_e_4_7_7/uut/data_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/data_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/push" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">push</obj_property>
+      <obj_property name="ObjectShortName">push</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/pop" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pop</obj_property>
+      <obj_property name="ObjectShortName">pop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/cr4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cr4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cr4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/dec_4_16_row" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dec_4_16_row[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dec_4_16_row[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_e_4_7_7/uut/enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+</wave_config>
