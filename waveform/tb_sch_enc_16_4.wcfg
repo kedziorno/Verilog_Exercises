@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/user/_WORKSPACE_/kedziorno/pong_p_chu/tb_sch_enc_16_4_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_sch_enc_16_4" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="3" />
+   <wave_markers>
+      <marker time="340000000" label="" />
+   </wave_markers>
+   <wvobject fp_name="vbus22" type="vbus" db_ref_id="1">
+      <obj_property name="label">o</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_sch_enc_16_4/o3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">o3</obj_property>
+         <obj_property name="ObjectShortName">o3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/o2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">o2</obj_property>
+         <obj_property name="ObjectShortName">o2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/o0" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">o0</obj_property>
+         <obj_property name="ObjectShortName">o0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/o1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">o1</obj_property>
+         <obj_property name="ObjectShortName">o1</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="vbus23" type="vbus" db_ref_id="1">
+      <obj_property name="label">i</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_sch_enc_16_4/i15" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i15</obj_property>
+         <obj_property name="ObjectShortName">i15</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i14" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i14</obj_property>
+         <obj_property name="ObjectShortName">i14</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i13" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i13</obj_property>
+         <obj_property name="ObjectShortName">i13</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i12" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i12</obj_property>
+         <obj_property name="ObjectShortName">i12</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i11" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i11</obj_property>
+         <obj_property name="ObjectShortName">i11</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i10" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i10</obj_property>
+         <obj_property name="ObjectShortName">i10</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i9" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i9</obj_property>
+         <obj_property name="ObjectShortName">i9</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i8" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i8</obj_property>
+         <obj_property name="ObjectShortName">i8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i7" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i7</obj_property>
+         <obj_property name="ObjectShortName">i7</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i6" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i6</obj_property>
+         <obj_property name="ObjectShortName">i6</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i5" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i5</obj_property>
+         <obj_property name="ObjectShortName">i5</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i4" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i4</obj_property>
+         <obj_property name="ObjectShortName">i4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i3" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i3</obj_property>
+         <obj_property name="ObjectShortName">i3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i2" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i2</obj_property>
+         <obj_property name="ObjectShortName">i2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i1" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i1</obj_property>
+         <obj_property name="ObjectShortName">i1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_sch_enc_16_4/i0" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">i0</obj_property>
+         <obj_property name="ObjectShortName">i0</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_sch_enc_16_4/en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+   </wvobject>
+</wave_config>

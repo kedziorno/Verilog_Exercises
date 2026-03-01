@@ -11,11 +11,6 @@
         <signal name="en" />
         <signal name="XLXN_5" />
         <signal name="XLXN_6" />
-        <signal name="XLXN_7" />
-        <signal name="XLXN_8" />
-        <signal name="XLXN_9" />
-        <signal name="XLXN_10" />
-        <signal name="XLXN_11" />
         <signal name="o0" />
         <signal name="o1" />
         <signal name="o2" />
@@ -151,5 +146,13 @@
             <wire x2="1408" y1="1600" y2="1600" x1="1376" />
         </branch>
         <iomarker fontsize="28" x="1408" y="1600" name="o3" orien="R0" />
+        <text style="fontsize:64;fontname:Courier New" x="1720" y="1276"> 1 00 0001</text>
+        <text style="fontsize:64;fontname:Courier New" x="1720" y="1332"> 1 01 0010</text>
+        <text style="fontsize:64;fontname:Courier New" x="1720" y="1388"> 1 10 0100</text>
+        <text style="fontsize:64;fontname:Courier New" x="1720" y="1448"> 1 11 1000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1708" y="1220">-----------</text>
+        <text style="fontsize:64;fontname:Courier New" x="1720" y="1188">en  i    o</text>
+        <text style="fontsize:64;fontname:Courier New" x="1716" y="1112">EN DECODER 2-4</text>
+        <rect width="592" x="1664" y="1076" height="404" />
     </sheet>
 </drawing>

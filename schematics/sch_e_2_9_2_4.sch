@@ -12,7 +12,6 @@
         <signal name="en" />
         <signal name="i1" />
         <signal name="i0" />
-        <signal name="XLXN_10" />
         <signal name="o0" />
         <signal name="o1" />
         <signal name="o2" />
@@ -168,5 +167,17 @@
         </branch>
         <iomarker fontsize="28" x="1584" y="1280" name="o7" orien="R0" />
         <iomarker fontsize="28" x="656" y="880" name="en" orien="R180" />
+        <rect width="632" x="1812" y="676" height="592" />
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="872"> 1 000 00000001</text>
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="924"> 1 001 00000010</text>
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="976"> 1 010 00000100</text>
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="1028"> 1 011 00001000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="1080"> 1 100 00010000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="1132"> 1 101 00100000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="1184"> 1 110 01000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1828" y="1236"> 1 111 10000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1824" y="836">----------------</text>
+        <text style="fontsize:64;fontname:Courier New" x="1824" y="804">en   i        o</text>
+        <text style="fontsize:64;fontname:Courier New" x="1852" y="708">EN DECODER 3-8</text>
     </sheet>
 </drawing>

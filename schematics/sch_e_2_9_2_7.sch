@@ -6,16 +6,6 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="XLXN_2" />
-        <signal name="XLXN_3" />
-        <signal name="XLXN_5" />
-        <signal name="XLXN_6" />
-        <signal name="XLXN_12" />
-        <signal name="XLXN_13" />
-        <signal name="XLXN_20" />
-        <signal name="XLXN_21" />
-        <signal name="XLXN_23" />
-        <signal name="XLXN_24" />
         <signal name="i0" />
         <signal name="i1" />
         <signal name="XLXN_8" />
@@ -165,168 +155,188 @@
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
-        <instance x="1744" y="1040" name="XLXI_1" orien="R0">
+        <instance x="1008" y="672" name="XLXI_1" orien="R0">
         </instance>
-        <instance x="1744" y="1376" name="XLXI_2" orien="R0">
+        <instance x="1008" y="1008" name="XLXI_2" orien="R0">
         </instance>
-        <instance x="1744" y="1712" name="XLXI_3" orien="R0">
+        <instance x="1008" y="1344" name="XLXI_3" orien="R0">
         </instance>
-        <instance x="1744" y="2048" name="XLXI_4" orien="R0">
+        <instance x="1008" y="1680" name="XLXI_4" orien="R0">
         </instance>
         <branch name="i0">
-            <wire x2="1728" y1="816" y2="816" x1="1664" />
-            <wire x2="1744" y1="816" y2="816" x1="1728" />
-            <wire x2="1728" y1="816" y2="1152" x1="1728" />
-            <wire x2="1744" y1="1152" y2="1152" x1="1728" />
-            <wire x2="1728" y1="1152" y2="1488" x1="1728" />
-            <wire x2="1744" y1="1488" y2="1488" x1="1728" />
-            <wire x2="1728" y1="1488" y2="1824" x1="1728" />
-            <wire x2="1744" y1="1824" y2="1824" x1="1728" />
+            <wire x2="992" y1="448" y2="448" x1="928" />
+            <wire x2="1008" y1="448" y2="448" x1="992" />
+            <wire x2="992" y1="448" y2="784" x1="992" />
+            <wire x2="1008" y1="784" y2="784" x1="992" />
+            <wire x2="992" y1="784" y2="1120" x1="992" />
+            <wire x2="1008" y1="1120" y2="1120" x1="992" />
+            <wire x2="992" y1="1120" y2="1456" x1="992" />
+            <wire x2="1008" y1="1456" y2="1456" x1="992" />
         </branch>
         <branch name="i1">
-            <wire x2="1712" y1="912" y2="912" x1="1664" />
-            <wire x2="1744" y1="912" y2="912" x1="1712" />
-            <wire x2="1712" y1="912" y2="1248" x1="1712" />
-            <wire x2="1744" y1="1248" y2="1248" x1="1712" />
-            <wire x2="1712" y1="1248" y2="1584" x1="1712" />
-            <wire x2="1744" y1="1584" y2="1584" x1="1712" />
-            <wire x2="1712" y1="1584" y2="1920" x1="1712" />
-            <wire x2="1744" y1="1920" y2="1920" x1="1712" />
+            <wire x2="976" y1="544" y2="544" x1="928" />
+            <wire x2="1008" y1="544" y2="544" x1="976" />
+            <wire x2="976" y1="544" y2="880" x1="976" />
+            <wire x2="1008" y1="880" y2="880" x1="976" />
+            <wire x2="976" y1="880" y2="1216" x1="976" />
+            <wire x2="1008" y1="1216" y2="1216" x1="976" />
+            <wire x2="976" y1="1216" y2="1552" x1="976" />
+            <wire x2="1008" y1="1552" y2="1552" x1="976" />
         </branch>
         <branch name="XLXN_8">
-            <wire x2="1744" y1="1008" y2="1008" x1="1632" />
+            <wire x2="1008" y1="640" y2="640" x1="896" />
         </branch>
         <branch name="XLXN_11">
-            <wire x2="1744" y1="2016" y2="2016" x1="1632" />
+            <wire x2="1008" y1="1648" y2="1648" x1="896" />
         </branch>
-        <instance x="1376" y="1136" name="XLXI_5" orien="R0" />
-        <instance x="1280" y="640" name="XLXI_9" orien="R90" />
-        <instance x="1120" y="640" name="XLXI_10" orien="R90" />
-        <instance x="1376" y="1472" name="XLXI_11" orien="R0" />
-        <instance x="1376" y="1808" name="XLXI_12" orien="R0" />
-        <instance x="1376" y="2144" name="XLXI_13" orien="R0" />
+        <instance x="640" y="768" name="XLXI_5" orien="R0" />
+        <instance x="544" y="272" name="XLXI_9" orien="R90" />
+        <instance x="384" y="272" name="XLXI_10" orien="R90" />
+        <instance x="640" y="1104" name="XLXI_11" orien="R0" />
+        <instance x="640" y="1440" name="XLXI_12" orien="R0" />
+        <instance x="640" y="1776" name="XLXI_13" orien="R0" />
         <branch name="i3">
-            <wire x2="1072" y1="560" y2="624" x1="1072" />
-            <wire x2="1152" y1="624" y2="624" x1="1072" />
-            <wire x2="1152" y1="624" y2="640" x1="1152" />
-            <wire x2="1072" y1="624" y2="1344" x1="1072" />
-            <wire x2="1072" y1="1344" y2="2016" x1="1072" />
-            <wire x2="1376" y1="2016" y2="2016" x1="1072" />
-            <wire x2="1376" y1="1344" y2="1344" x1="1072" />
+            <wire x2="336" y1="192" y2="256" x1="336" />
+            <wire x2="416" y1="256" y2="256" x1="336" />
+            <wire x2="416" y1="256" y2="272" x1="416" />
+            <wire x2="336" y1="256" y2="976" x1="336" />
+            <wire x2="336" y1="976" y2="1648" x1="336" />
+            <wire x2="640" y1="1648" y2="1648" x1="336" />
+            <wire x2="640" y1="976" y2="976" x1="336" />
         </branch>
         <branch name="i2">
-            <wire x2="1232" y1="560" y2="624" x1="1232" />
-            <wire x2="1312" y1="624" y2="624" x1="1232" />
-            <wire x2="1312" y1="624" y2="640" x1="1312" />
-            <wire x2="1232" y1="624" y2="1616" x1="1232" />
-            <wire x2="1376" y1="1616" y2="1616" x1="1232" />
-            <wire x2="1232" y1="1616" y2="1952" x1="1232" />
-            <wire x2="1376" y1="1952" y2="1952" x1="1232" />
+            <wire x2="496" y1="192" y2="256" x1="496" />
+            <wire x2="576" y1="256" y2="256" x1="496" />
+            <wire x2="576" y1="256" y2="272" x1="576" />
+            <wire x2="496" y1="256" y2="1248" x1="496" />
+            <wire x2="640" y1="1248" y2="1248" x1="496" />
+            <wire x2="496" y1="1248" y2="1584" x1="496" />
+            <wire x2="640" y1="1584" y2="1584" x1="496" />
         </branch>
         <branch name="XLXN_18">
-            <wire x2="1312" y1="864" y2="944" x1="1312" />
-            <wire x2="1376" y1="944" y2="944" x1="1312" />
-            <wire x2="1312" y1="944" y2="1280" x1="1312" />
-            <wire x2="1376" y1="1280" y2="1280" x1="1312" />
+            <wire x2="576" y1="496" y2="576" x1="576" />
+            <wire x2="640" y1="576" y2="576" x1="576" />
+            <wire x2="576" y1="576" y2="912" x1="576" />
+            <wire x2="640" y1="912" y2="912" x1="576" />
         </branch>
         <branch name="XLXN_19">
-            <wire x2="1152" y1="864" y2="1008" x1="1152" />
-            <wire x2="1376" y1="1008" y2="1008" x1="1152" />
-            <wire x2="1152" y1="1008" y2="1680" x1="1152" />
-            <wire x2="1376" y1="1680" y2="1680" x1="1152" />
+            <wire x2="416" y1="496" y2="640" x1="416" />
+            <wire x2="640" y1="640" y2="640" x1="416" />
+            <wire x2="416" y1="640" y2="1312" x1="416" />
+            <wire x2="640" y1="1312" y2="1312" x1="416" />
         </branch>
         <branch name="en">
-            <wire x2="1360" y1="1072" y2="1072" x1="1040" />
-            <wire x2="1376" y1="1072" y2="1072" x1="1360" />
-            <wire x2="1360" y1="1072" y2="1408" x1="1360" />
-            <wire x2="1376" y1="1408" y2="1408" x1="1360" />
-            <wire x2="1360" y1="1408" y2="1744" x1="1360" />
-            <wire x2="1376" y1="1744" y2="1744" x1="1360" />
-            <wire x2="1360" y1="1744" y2="2080" x1="1360" />
-            <wire x2="1376" y1="2080" y2="2080" x1="1360" />
+            <wire x2="624" y1="704" y2="704" x1="304" />
+            <wire x2="640" y1="704" y2="704" x1="624" />
+            <wire x2="624" y1="704" y2="1040" x1="624" />
+            <wire x2="640" y1="1040" y2="1040" x1="624" />
+            <wire x2="624" y1="1040" y2="1376" x1="624" />
+            <wire x2="640" y1="1376" y2="1376" x1="624" />
+            <wire x2="624" y1="1376" y2="1712" x1="624" />
+            <wire x2="640" y1="1712" y2="1712" x1="624" />
         </branch>
-        <iomarker fontsize="28" x="1040" y="1072" name="en" orien="R180" />
-        <iomarker fontsize="28" x="1072" y="560" name="i3" orien="R270" />
-        <iomarker fontsize="28" x="1232" y="560" name="i2" orien="R270" />
         <branch name="o0">
-            <wire x2="2144" y1="816" y2="816" x1="2128" />
-            <wire x2="2160" y1="816" y2="816" x1="2144" />
+            <wire x2="1408" y1="448" y2="448" x1="1392" />
+            <wire x2="1424" y1="448" y2="448" x1="1408" />
         </branch>
         <branch name="o1">
-            <wire x2="2160" y1="880" y2="880" x1="2128" />
+            <wire x2="1424" y1="512" y2="512" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="880" name="o1" orien="R0" />
         <branch name="o2">
-            <wire x2="2160" y1="944" y2="944" x1="2128" />
+            <wire x2="1424" y1="576" y2="576" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="944" name="o2" orien="R0" />
         <branch name="o3">
-            <wire x2="2160" y1="1008" y2="1008" x1="2128" />
+            <wire x2="1424" y1="640" y2="640" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1008" name="o3" orien="R0" />
         <branch name="o4">
-            <wire x2="2144" y1="1152" y2="1152" x1="2128" />
-            <wire x2="2160" y1="1152" y2="1152" x1="2144" />
+            <wire x2="1408" y1="784" y2="784" x1="1392" />
+            <wire x2="1424" y1="784" y2="784" x1="1408" />
         </branch>
         <branch name="o5">
-            <wire x2="2160" y1="1216" y2="1216" x1="2128" />
+            <wire x2="1424" y1="848" y2="848" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1216" name="o5" orien="R0" />
         <branch name="o6">
-            <wire x2="2160" y1="1280" y2="1280" x1="2128" />
+            <wire x2="1424" y1="912" y2="912" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1280" name="o6" orien="R0" />
         <branch name="o7">
-            <wire x2="2160" y1="1344" y2="1344" x1="2128" />
+            <wire x2="1424" y1="976" y2="976" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1344" name="o7" orien="R0" />
         <branch name="o8">
-            <wire x2="2160" y1="1488" y2="1488" x1="2128" />
+            <wire x2="1424" y1="1120" y2="1120" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1488" name="o8" orien="R0" />
         <branch name="o9">
-            <wire x2="2160" y1="1552" y2="1552" x1="2128" />
+            <wire x2="1424" y1="1184" y2="1184" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1552" name="o9" orien="R0" />
         <branch name="o10">
-            <wire x2="2160" y1="1616" y2="1616" x1="2128" />
+            <wire x2="1424" y1="1248" y2="1248" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1616" name="o10" orien="R0" />
         <branch name="o11">
-            <wire x2="2160" y1="1680" y2="1680" x1="2128" />
+            <wire x2="1424" y1="1312" y2="1312" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1680" name="o11" orien="R0" />
         <branch name="o12">
-            <wire x2="2160" y1="1824" y2="1824" x1="2128" />
+            <wire x2="1424" y1="1456" y2="1456" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1824" name="o12" orien="R0" />
         <branch name="o13">
-            <wire x2="2160" y1="1888" y2="1888" x1="2128" />
+            <wire x2="1424" y1="1520" y2="1520" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1888" name="o13" orien="R0" />
         <branch name="o14">
-            <wire x2="2160" y1="1952" y2="1952" x1="2128" />
+            <wire x2="1424" y1="1584" y2="1584" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="1952" name="o14" orien="R0" />
         <branch name="o15">
-            <wire x2="2160" y1="2016" y2="2016" x1="2128" />
+            <wire x2="1424" y1="1648" y2="1648" x1="1392" />
         </branch>
-        <iomarker fontsize="28" x="2160" y="2016" name="o15" orien="R0" />
-        <iomarker fontsize="28" x="1664" y="816" name="i0" orien="R180" />
-        <iomarker fontsize="28" x="1664" y="912" name="i1" orien="R180" />
-        <iomarker fontsize="28" x="2160" y="816" name="o0" orien="R0" />
-        <iomarker fontsize="28" x="2160" y="1152" name="o4" orien="R0" />
         <branch name="XLXN_52">
-            <wire x2="1680" y1="1344" y2="1344" x1="1632" />
-            <wire x2="1680" y1="1344" y2="1680" x1="1680" />
-            <wire x2="1744" y1="1680" y2="1680" x1="1680" />
+            <wire x2="944" y1="976" y2="976" x1="896" />
+            <wire x2="944" y1="976" y2="1312" x1="944" />
+            <wire x2="1008" y1="1312" y2="1312" x1="944" />
         </branch>
         <branch name="XLXN_53">
-            <wire x2="1664" y1="1680" y2="1680" x1="1632" />
-            <wire x2="1664" y1="1680" y2="1744" x1="1664" />
-            <wire x2="1696" y1="1744" y2="1744" x1="1664" />
-            <wire x2="1696" y1="1344" y2="1744" x1="1696" />
-            <wire x2="1744" y1="1344" y2="1344" x1="1696" />
+            <wire x2="928" y1="1312" y2="1312" x1="896" />
+            <wire x2="928" y1="1312" y2="1376" x1="928" />
+            <wire x2="960" y1="1376" y2="1376" x1="928" />
+            <wire x2="960" y1="976" y2="1376" x1="960" />
+            <wire x2="1008" y1="976" y2="976" x1="960" />
         </branch>
+        <iomarker fontsize="28" x="304" y="704" name="en" orien="R180" />
+        <iomarker fontsize="28" x="336" y="192" name="i3" orien="R270" />
+        <iomarker fontsize="28" x="496" y="192" name="i2" orien="R270" />
+        <iomarker fontsize="28" x="1424" y="512" name="o1" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="576" name="o2" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="640" name="o3" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="848" name="o5" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="912" name="o6" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="976" name="o7" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1120" name="o8" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1184" name="o9" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1248" name="o10" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1312" name="o11" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1456" name="o12" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1520" name="o13" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1584" name="o14" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="1648" name="o15" orien="R0" />
+        <iomarker fontsize="28" x="928" y="448" name="i0" orien="R180" />
+        <iomarker fontsize="28" x="928" y="544" name="i1" orien="R180" />
+        <iomarker fontsize="28" x="1424" y="448" name="o0" orien="R0" />
+        <iomarker fontsize="28" x="1424" y="784" name="o4" orien="R0" />
+        <rect width="976" x="1712" y="516" height="976" />
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="740"> 1 0000 0000000000000001</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="788"> 1 0001 0000000000000010</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="836"> 1 0010 0000000000000100</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="884"> 1 0011 0000000000001000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="932"> 1 0100 0000000000010000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="980"> 1 0101 0000000000100000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1028"> 1 0110 0000000001000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1076"> 1 0111 0000000010000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1124"> 1 1000 0000000100000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1172"> 1 1001 0000001000000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1220"> 1 1010 0000010000000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1268"> 1 1011 0000100000000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1316"> 1 1100 0001000000000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1364"> 1 1101 0010000000000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1412"> 1 1110 0100000000000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="1460"> 1 1111 1000000000000000</text>
+        <text style="fontsize:64;fontname:Courier New" x="1732" y="700">-------------------------</text>
+        <text style="fontsize:64;fontname:Courier New" x="1736" y="664">en    i                o</text>
+        <text style="fontsize:64;fontname:Courier New" x="1744" y="556">EN DECODER 4-16</text>
     </sheet>
 </drawing>
