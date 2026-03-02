@@ -58,12 +58,18 @@ pop = 0;
 reset = 0;
 
 // Add stimulus here
-push = 1; data_in = 8'haa; #10;
-push = 1; data_in = 8'h55; #10;
-push = 1; data_in = 8'hbb; #10;
-push = 1; data_in = 8'h66; #10;
-push = 1; data_in = 8'hcc; #10;
-push = 1; data_in = 8'h77; #10;
+//push = 1; data_in = 8'haa; #10;
+//push = 1; data_in = 8'h55; #10;
+//push = 1; data_in = 8'hbb; #10;
+//push = 1; data_in = 8'h66; #10;
+//push = 1; data_in = 8'hcc; #10;
+//push = 1; data_in = 8'h77; #10;
+//push = 0; pop = 1; #60;
+push = 0; pop = 0; #20;
+push = 1; pop = 0; #200;
+push = 0; pop = 1; #200;
+push = 0; pop = 0; #20;
+$finish;
 end
 
 endmodule
